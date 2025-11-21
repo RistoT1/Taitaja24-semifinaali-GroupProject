@@ -1,0 +1,227 @@
+/* ===== Global Styles ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+    background-color: #f9fafb;
+    color: #1f2937;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+li{
+    margin: 0 !important;
+}
+/* ===== Layout ===== */
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidepanel {
+    width: 250px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px;
+}
+
+.sidepanel h2 {
+    margin-top: 0;
+}
+
+.sidepanel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidepanel ul li {
+    margin-bottom: 10px;
+}
+
+.sidepanel ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.sidepanel ul li a:hover {
+    background-color: #34495e;
+}
+
+/* Main content */
+.main-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Panels */
+.panel {
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+.panel-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.panel-content {
+    color: #6b7280;
+}
+
+/* ===== Overlay & Spinner ===== */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(31, 41, 55, 0.9);
+    z-index: 1000;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===== Loading Indicator ===== */
+.loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #4f46e5;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 1rem;
+    background-color: #e0f2fe;
+    border: 2px solid #3b82f6;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.panel-container-loading {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease-out;
+}
+
+/* ===== Product Counts ===== */
+.row {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.tuote-count {
+    display: flex;
+    text-align: center;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.tuote-count h2 {
+    border-bottom: solid gray 1px;
+    color: #8f9090;
+}
+
+.tuote-count h3 {
+    color: #8f9090;
+    padding: 10px;
+    margin-top: 2px;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Links, spans, and buttons share the same look */
+.pagination li a,
+.pagination li span,
+.pagination li button.page-link {
+    display: block;
+    padding: 0.6rem 1rem;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    background: transparent;
+    border: none;
+    font-size: 0.95rem;
+    height: 100%;
+}
+
+.pagination li a:hover,
+.pagination li button.page-link:hover {
+    background: #f0f0f0;
+}
+
+.pagination li.active span,
+.pagination li.active button.page-link {
+    background: #4f46e5; /* Indigo */
+    color: #fff;
+    font-weight: bold;
+}
+
+.pagination li.disabled span,
+.pagination li.disabled button.page-link {
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+/* ===== Alpine.js x-cloak ===== */
+[x-cloak] {
+    display: none !important;
+}

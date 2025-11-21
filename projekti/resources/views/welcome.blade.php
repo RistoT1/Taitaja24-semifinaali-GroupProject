@@ -11,7 +11,7 @@
         <h2>Yoo</h2>
     </div>
     
-    <a href="{{ url('/test2') }}">klikkaa</a>
+    <a href="{{ url('/admin') }}">klikkaa</a>
     
 
 </body>

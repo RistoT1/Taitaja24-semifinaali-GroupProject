@@ -11,3 +11,8 @@ Route::get('/test2', function () {
     return view('test2');
 });
 
+Route::get('/admin', function () {
+    return view('admin');
+});
+
+Route::get('/tuotteet', [TuotteetController::class, 'index']);
