@@ -7,8 +7,8 @@
         @else
             <livewire:tuotteet-panel />
         @endif
-    @elseif($activePanel === 'panel2')
-        <livewire:user-settings-panel wire:key="settings-panel" />
+    @elseif($activePanel === 'user')
+        <livewire:user-panel />
     @elseif($activePanel === 'panel3')
         <livewire:system-logs-panel wire:key="logs-panel" />
     @endif

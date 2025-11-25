@@ -23,11 +23,6 @@ class TuotteetPanel extends Component
     {
         $this->resetPage();
     }
-    public function refreshPanel()
-    {
-        // Just reset pagination or re-run filters
-        $this->resetPage();
-    }
 
 
     public function updatedSearchCategory()

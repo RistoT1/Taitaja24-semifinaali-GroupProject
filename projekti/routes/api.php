@@ -12,5 +12,7 @@ Route::get('/categories', [CategoriesController::class, 'apiIndex']);
 
 Route::post('/tuotteet', [TuotteetController::class, 'store']);
 
-// routes/api.php
-Route::get('/tilaukset', [] );
+
+
+
+

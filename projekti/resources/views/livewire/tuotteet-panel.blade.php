@@ -2,7 +2,6 @@
     <div class="tittle-container">
         <h4 class="panel-title panel-title-1">Panel 1 (Tuotteet)</h4>
     </div>
-
     <div class="data-container">
         @if($this->panelData['TotalCount'] === 0)
             <p>No tuotteet found.</p>
@@ -21,25 +20,25 @@
 
         <div class="row">
             <div class="search-bar">
-                <input type="text" wire:model.debounce-500ms="searchTerm" placeholder="Hae tuotteita...">
+                <input type="text" wire:model.live.debounce.200ms="searchTerm" placeholder="Hae tuotteita...">
 
-                <select wire:model="searchCategory">
+                <select wire:model.live="searchCategory">
                     <option value="">-- Valitse kategoria --</option>
                     @foreach($this->categories as $category)
                         <option value="{{ $category }}">{{ $category }}</option>
                     @endforeach
                 </select>
 
-                <select wire:model="searchOrder">
+                <select wire:model.live="searchOrder">
                     <option value="">-- Valitse järjestys --</option>
                     <option value="created_at_asc">Newest first</option>
                     <option value="created_at_desc">Oldest first</option>
                     <option value="price_asc">Cheapest first</option>
                     <option value="price_desc">Most expensive first</option>
                 </select>
-                <button wire:click="refreshPanel">hae</button>
             </div>
         </div>
+
 
         <ul>
             @forelse($this->tuotteet as $item)
