@@ -7,6 +7,12 @@ const addToCartBtn = document.querySelector('.products_details_buybtn');
 const decreaseBtn = document.getElementById('decrease');
 const increaseBtn = document.getElementById('increase');
 const qtyValue = document.getElementById('qty');
+const carousel = document.querySelector('#reviewCarousel');
+const nextBtn = document.querySelector('.carousel_btn.next');
+const prevBtn = document.querySelector('.carousel_btn.prev');
+
+
+
 
 
 
@@ -69,11 +75,9 @@ addToCartBtn.addEventListener('click', () => {
 
 
 
-const carousel = document.querySelector('#reviewCarousel');
-const nextBtn = document.querySelector('.carousel_btn.next');
-const prevBtn = document.querySelector('.carousel_btn.prev');
 
-let cardWidth = 280; // card width + gap
+
+let cardWidth = 280; 
 let isMoving = false;
 
 function moveNext() {
@@ -83,7 +87,7 @@ function moveNext() {
     carousel.style.transition = "transform 0.4s ease";
     carousel.style.transform = `translateX(-${cardWidth}px)`;
 
-    // After animation, move first card to the end
+
     setTimeout(() => {
         carousel.appendChild(carousel.firstElementChild);
         carousel.style.transition = "none";
@@ -96,12 +100,11 @@ function movePrev() {
     if (isMoving) return;
     isMoving = true;
 
-    // Move last item to the beginning instantly
+
     carousel.style.transition = "none";
     carousel.insertBefore(carousel.lastElementChild, carousel.firstElementChild);
     carousel.style.transform = `translateX(-${cardWidth}px)`;
 
-    // Then slide back to 0
     setTimeout(() => {
         carousel.style.transition = "transform 0.4s ease";
         carousel.style.transform = "translateX(0)";
