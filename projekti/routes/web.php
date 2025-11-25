@@ -5,10 +5,6 @@ use App\Http\Controllers\TuotteetController;
 use App\Http\Controllers\KirjauduController;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/test2', function () {
     return view('test2');
 });
@@ -19,16 +15,18 @@ Route::get('/admin', function () {
 
 Route::get('/tuotteet', [TuotteetController::class, 'index']);
 
+Route::get('/kirjaudu', [KirjauduController::class, 'showLoginForm']);
 
 Route::post('/kirjaudu', [KirjauduController::class, 'checkCredentials']);
 
-Route::get('/kirjaudu', function () {
-    return view('kirjaudu');
-});
-
 Route::get('/me', function () {
-    $userID = Auth::id();
-    $user = Auth::user();
-    
-    return response()->json(['id' => $userID, "user" => $user]);
-})->middleware('auth');
+
+    return view('profile', ['user' => Auth::user()]);
+})->middleware('auth')->name('me');
+
+Route::get('/logout', function () {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect('/kirjaudu')->with('message', 'You have been logged out');
+})->middleware('auth')->name('logout');

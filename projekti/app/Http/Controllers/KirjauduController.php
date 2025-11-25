@@ -7,6 +7,17 @@ use Illuminate\Support\Facades\Auth;
 
 class KirjauduController extends Controller
 {
+    // Show login form
+    public function showLoginForm()
+    {
+        // If user is logged in (session or remember me), redirect
+        if (Auth::check()) {
+            return redirect()->route('me'); // guaranteed redirect to /me
+        }
+        return view('kirjaudu'); // Blade login page
+    }
+
+    // Handle login POST
     public function checkCredentials(Request $request)
     {
         $request->validate([
@@ -19,13 +30,9 @@ class KirjauduController extends Controller
             'password' => $request->input('SalasanaHash'),
         ];
 
-        if (Auth::attempt($credentials, true)) { // Add 'true' for remember me
-            $request->session()->regenerate();
-            
-            // Check if login actually worked
-            if (Auth::check()) {
-                return redirect('/me');
-            }
+        if (Auth::attempt($credentials, true)) {
+            $request->session()->regenerate(); // prevent session fixation
+            return redirect()->intended('/me');
         }
 
         return back()->withErrors([
