@@ -1,0 +1,316 @@
+.container{
+    max-width: 1136px;
+    margin: 0 auto;
+}
+
+.header_menu{
+    padding: 5px 0px;
+}
+
+.header_menu_wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_menu_logo{
+    display: block;
+    background-color: transparent;
+    border: none;
+}
+
+.header_menu_logo{
+    width: 85px;
+    height: 85px;  
+}
+
+.header_menu_right{
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.header_menu_list{
+    display: flex;
+    gap: 16px;
+    list-style: none;
+}
+
+.header_menu_list>li>a{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 100%;
+display: flex;
+align-items: center;
+color: #1E1E1E;
+text-decoration: none;
+}
+
+.header_menu_btn{
+    display: flex;
+    gap: 12px;
+}
+
+.signin_btn{
+display: block;
+width: 83px;
+height: 32px;
+background: #E3E3E3;
+border: 1px solid #767676;
+border-radius: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 100%;
+color: #1E1E1E;
+transition: 0.3s;
+}
+
+.signin_btn:hover{
+    background: #2C2C2C;
+    color: #F5F5F5;
+}
+
+.register_btn{
+display: block;
+width: 83px;
+height: 32px;
+background: #2C2C2C;
+border: 1px solid #2C2C2C;
+border-radius: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 100%;
+color: #F5F5F5;
+transition: 0.3s;
+}
+
+.register_btn:hover{
+    background: #E3E3E3;
+    color: #1E1E1E;
+}
+
+.line{
+height: 1px;
+background: #d9d9d9;
+
+
+}
+
+
+.body_container{
+    background-image: url("images/chernyi_rebenok.webp");
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: 20px;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    align-items: center;        
+
+    text-align: center;         
+    overflow: hidden;
+}
+
+.orderfresh_cont>h1{
+    font-size: 60px;
+    color: #f0dcdc;
+}
+.orderfresh_cont>h2{
+    font-size: 25px;
+    color: #dfdcd8;
+}
+.fresh_menu_btn{
+    display: flex;
+    justify-content:center;
+    gap: 25px;
+    margin-top: 40px;
+}
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    
+  }
+
+  .favourite-picks {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 40px;
+    
+  }
+
+  .favourite-picks h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-size: 40px;
+  }
+
+  .picks-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .pick-item {
+    background-color: #fafafa;
+    border-radius: 8px;
+    overflow: hidden;
+    width: calc(44.444% - 13.333px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s;
+  }
+
+  .pick-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .pick-item img {
+    width: 100%;
+    display: block;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .pick-item p {
+    padding: 10px;
+    font-weight: bold;
+    margin: 0;
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  .scroll-wrapper {
+    width: 100%;
+    padding: 20px 0;
+    
+    
+  }
+
+  .scroll-container {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;       
+    padding-top: 100px;          
+    padding-bottom: 130px;             
+    scroll-snap-type: x mandatory;   
+    background-image: url(images/chernyi_rebenok.webp);
+  }
+
+  .scroll-container::-webkit-scrollbar {
+    height: 10px;                     
+  }
+
+  .scroll-container::-webkit-scrollbar-track {
+    background: #eee;
+    border-radius: 10px;
+  }
+
+  .scroll-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+  
+  }
+
+  .item {
+    min-width: 250px;                 
+    background: #fff;
+    border: 2px solid #000000;        
+    border-radius: 16px;
+    padding: 14px;
+    position: relative;
+    scroll-snap-align: start;
+    background-color: #eeecec;
+  }
+
+  .item img {
+    width: 100%;
+    height: 290px;
+    border-radius: 10px;
+  }
+
+  .badge {
+    position: absolute;
+    top: 3px;
+    left: 12px;
+    background: red;
+    color: white;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 8px 8px 8px 0;
+  }
+
+  .price {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .bfriday{
+    font-size: 40px;
+  }
+
+  .footer_wrapper{
+    padding: 30px 0px 56px 0px;
+    display: flex;
+    gap: 70px;
+}
+
+.footer_list>h3{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 140%;
+color: #1E1E1E;
+}
+
+.footer_list_items{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.footer_list_items>a{
+text-decoration: none;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 140%;
+display: flex;
+gap: 20px;
+color: #1E1E1E;
+}
+
+.footer_info>h3{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 140%;
+color: #1E1E1E;
+}
+
+.footer_info>p{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 140%;
+display: flex;
+gap: 20px;
+color: #1E1E1E;
+max-width: 350px;
+}
+
+
+.school_logo{
+    width: 292px;
+    height: 54px;
+}
