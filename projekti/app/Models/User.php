@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -21,6 +22,7 @@ class User extends Authenticatable
         'Sähköposti',
         'Puhelin',
         'SalasanaHash',
+        'email_verified_at',
     ];
 
     protected $hidden = [
@@ -29,15 +31,45 @@ class User extends Authenticatable
 
     protected $guarded = ['Rooli'];
 
-    // Tell Laravel which column contains the password hash
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    // Password column for authentication
     public function getAuthPassword()
     {
         return $this->SalasanaHash;
     }
 
-    // Tell Laravel which column to use for the username/email
-    public function getAuthIdentifierName()
+    // **REMOVED getAuthIdentifierName() - let Laravel use primary key**
+    // Laravel will now use User_ID as the identifier (correct!)
+
+    // Map 'email' attribute to your column
+    public function getEmailAttribute()
     {
-        return 'Sähköposti';
+        return $this->Sähköposti;
+    }
+
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['Sähköposti'] = $value;
+    }
+
+    // Map 'name' attribute to your column
+    public function getNameAttribute()
+    {
+        return $this->Nimi;
+    }
+
+    // Route email notifications to your email column
+    public function routeNotificationForMail()
+    {
+        return $this->Sähköposti;
+    }
+
+    // **CRITICAL: Tell Laravel which column to use for login**
+    public function getEmailForPasswordReset()
+    {
+        return $this->Sähköposti;
     }
 }
