@@ -3,56 +3,57 @@ ul {
     margin: 0;
     padding: 0;
 }
-.container{
+
+.container {
     max-width: 1136px;
     margin: 0 auto;
 }
 
-.header_menu{
+.header_menu {
     padding: 5px 0px;
 }
 
-.header_menu_wrapper{
+.header_menu_wrapper {
     display: flex;
     justify-content: space-between;
 }
 
-.header_menu_logo{
+.header_menu_logo {
     display: block;
     background-color: transparent;
     border: none;
 }
 
-.header_menu_logo{
+.header_menu_logo {
     width: 85px;
-    height: 85px;  
+    height: 85px;
 }
 
-.header_menu_right{
+.header_menu_right {
     display: flex;
     gap: 24px;
     align-items: center;
 }
 
-.header_menu_list{
+.header_menu_list {
     display: flex;
     gap: 16px;
     list-style: none;
 }
 
-.header_menu_list>li>a{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 100%;
-display: flex;
-align-items: center;
-color: #1E1E1E;
-text-decoration: none;
+.header_menu_list>li>a {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    color: #1E1E1E;
+    text-decoration: none;
 }
 
-.header_menu_btn{
+.header_menu_btn {
     display: flex;
     gap: 12px;
 }
@@ -89,217 +90,217 @@ text-decoration: none;
     align-items: center;
 }
 
-.alert{
+.alert {
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-.signin_btn{
-display: block;
-width: 83px;
-height: 32px;
-background: #E3E3E3;
-border: 1px solid #767676;
-border-radius: 8px;
-transition: 0.3s;
+.signin_btn {
+    display: block;
+    width: 83px;
+    height: 32px;
+    background: #E3E3E3;
+    border: 1px solid #767676;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
-.signin_btn>a{
-text-decoration: none;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 100%;
-color: #1E1E1E;
-transition: 0.3s;
+.signin_btn>a {
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #1E1E1E;
+    transition: 0.3s;
 
 }
 
-.signin_btn:hover{
+.signin_btn:hover {
     background: #2C2C2C;
 
 }
 
-.signin_btn:hover>a{
+.signin_btn:hover>a {
     color: #F5F5F5;
 }
 
-.register_btn{
-display: block;
-width: 83px;
-height: 32px;
-background: #2C2C2C;
-border: 1px solid #2C2C2C;
-border-radius: 8px;
-transition: 0.3s;
+.register_btn {
+    display: block;
+    width: 83px;
+    height: 32px;
+    background: #2C2C2C;
+    border: 1px solid #2C2C2C;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
-.register_btn>a{
-text-decoration: none;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 100%;
-color: #F5F5F5;
-transition: 0.3s;
+.register_btn>a {
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #F5F5F5;
+    transition: 0.3s;
 }
 
-.register_btn:hover{
+.register_btn:hover {
     background: #E3E3E3;
     color: #1E1E1E;
 }
 
-.register_btn:hover>a{
+.register_btn:hover>a {
     color: #1E1E1E;
 }
 
-.line{
-height: 1px;
-background: #d9d9d9;
+.line {
+    height: 1px;
+    background: #d9d9d9;
 
 
 }
 
 
 
-.reglog{
-  padding: 50px 0px  300px 0px ;  
+.reglog {
+    padding: 50px 0px 300px 0px;
 }
 
-.reglog_title{
-display: flex;
-justify-content: center;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 72px;
-line-height: 120%;
-text-align: center;
-letter-spacing: -0.03em;
-color: #2C2C2C;
+.reglog_title {
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 120%;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #2C2C2C;
 }
 
-.reglog_form{
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 20px 24px 50px;
-gap: 24px;
-width: 320px;
-border: 1px solid #D9D9D9;
-border-radius: 8px;
-margin: 0 auto;
+.reglog_form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 24px 50px;
+    gap: 24px;
+    width: 320px;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    margin: 0 auto;
 }
 
-.reglog_form>label{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 140%;
-color: #1E1E1E;
+.reglog_form>label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+    color: #1E1E1E;
 }
 
-.reglog_form>input{
-display: flex;
-padding: 0px 16px;
-width: 272px;
-height: 40px;
-border: none;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 100%;
-color: #B3B3B3;
+.reglog_form>input {
+    display: flex;
+    padding: 0px 16px;
+    width: 272px;
+    height: 40px;
+    border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #B3B3B3;
 }
 
-.reglog_form>button{
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-margin: 0 auto;
-width: 272px;
-height: 40px;
-background: #2C2C2C;
-border: 1px solid #2C2C2C;
-border-radius: 8px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 100%;
-color: #F5F5F5;
-transition: 0.5s;
+.reglog_form>button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 272px;
+    height: 40px;
+    background: #2C2C2C;
+    border: 1px solid #2C2C2C;
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #F5F5F5;
+    transition: 0.5s;
 }
 
-.reglog_form>button:hover{
+.reglog_form>button:hover {
     background-color: #F5F5F5;
     color: #2c2c2c;
 }
 
 
 
-.footer_wrapper{
+.footer_wrapper {
     padding: 30px 0px 56px 0px;
     display: flex;
     gap: 70px;
 }
 
-.footer_list>h3{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 16px;
-line-height: 140%;
-color: #1E1E1E;
+.footer_list>h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    color: #1E1E1E;
 }
 
-.footer_list_items{
+.footer_list_items {
     display: flex;
     flex-direction: column;
     list-style: none;
 }
 
-.footer_list_items>a{
-text-decoration: none;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 140%;
-display: flex;
-gap: 20px;
-color: #1E1E1E;
+.footer_list_items>a {
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    display: flex;
+    gap: 20px;
+    color: #1E1E1E;
 }
 
-.footer_info>h3{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 16px;
-line-height: 140%;
-color: #1E1E1E;
+.footer_info>h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    color: #1E1E1E;
 }
 
-.footer_info>p{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 140%;
-display: flex;
-gap: 20px;
-color: #1E1E1E;
-max-width: 350px;
+.footer_info>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    display: flex;
+    gap: 20px;
+    color: #1E1E1E;
+    max-width: 350px;
 }
 
 
-.school_logo{
+.school_logo {
     width: 292px;
     height: 54px;
 }
@@ -307,35 +308,52 @@ max-width: 350px;
 
 
 
-.products_details{
+.products_details {
     padding: 64px 0px 30px 0px;
 }
 
-.products_details_wrapper{
+.products_details_wrapper {
     display: flex;
     justify-content: space-between;
 
 }
 
 
-.products_details_left{
+.products_details_left {
     position: relative;
-    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
 }
 
-.products_details_left>img{
+.product-details-img {
+    width: 400px;
+    height: 400px;
+}
+
+.product-details-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+    border-radius: 2px;
+}
+
+.products_details_left>img {
     border: 2px solid #e0e0e0;
 }
 
 
-.favorites_btn{
-    background-color: #2c2c2c;
+.favorites_btn {
+    background-color: #cdc8c888;
     border-radius: 50%;
     width: 44px;
     height: 44px;
-    position: absolute;
+    border: none;
+    position: relative;
     top: 10px;
-    left: 10px;
+    left: -50px;
 }
 
 
@@ -348,32 +366,32 @@ max-width: 350px;
 
 .heart.active_heart {
     color: rgb(193, 9, 9);
-    
+
 }
 
 
 
-.products_details_name{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 28px;
-line-height: 120%;
-letter-spacing: -0.02em;
-color: #1E1E1E;
-padding-bottom: 30px;
+.products_details_name {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: #1E1E1E;
+    padding-bottom: 30px;
 }
 
-.products_details_price{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 700;
-font-size: 48px;
-line-height: 100%;
-letter-spacing: -0.02em;
-color: #1E1E1E;
-padding-bottom: 26px;
-border-bottom: 1px solid  #1E1E1E;
+.products_details_price {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    color: #1E1E1E;
+    padding-bottom: 26px;
+    border-bottom: 1px solid #1E1E1E;
 }
 
 .products_details_desc {
@@ -404,7 +422,8 @@ border-bottom: 1px solid  #1E1E1E;
 }
 
 .products_details_desc.open {
-    max-height: 500px; /* Lower value for faster animation */
+    max-height: 500px;
+    /* Lower value for faster animation */
 }
 
 .products_details_desc.open::after {
@@ -424,7 +443,7 @@ border-bottom: 1px solid  #1E1E1E;
 }
 
 .toggle_btn:hover {
-     color: rgb(160, 159, 159);
+    color: rgb(160, 159, 159);
 }
 
 
@@ -448,8 +467,9 @@ border-bottom: 1px solid  #1E1E1E;
     width: 35px;
     height: 35px;
     border: none;
-    background-color: #2c2c2c;
-    color: white;
+    background-color: #ffffff;
+    border: #0f0f0f solid 1px;
+    color: rgb(18, 18, 18);
     font-size: 20px;
     font-weight: bold;
     border-radius: 8px;
@@ -458,7 +478,8 @@ border-bottom: 1px solid  #1E1E1E;
 }
 
 .qty-btn:hover {
-    background-color: #0f0f0f;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .qty-value {
@@ -471,37 +492,37 @@ border-bottom: 1px solid  #1E1E1E;
 
 
 
-.products_details_buybtn{
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 12px;
-gap: 8px;
+.products_details_buybtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 8px;
 
-position: relative;
-width: 175px;
-height: 48px;
+    position: relative;
+    width: 175px;
+    height: 48px;
 
-background: #FFFFFF;
-border: 2px solid #2C2C2C;
-border-radius: 8px;
+    background: #FFFFFF;
+    border: 2px solid #2C2C2C;
+    border-radius: 8px;
 
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 120%;
-display: flex;
-align-items: center;
-text-align: center;
-color: #1E1E1E;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #1E1E1E;
 
-transition: 0.5s;
+    transition: 0.5s;
 }
 
-.products_details_buybtn:hover{
+.products_details_buybtn:hover {
     background-color: #1E1E1E;
     color: #FFFFFF;
 }
@@ -513,29 +534,30 @@ transition: 0.5s;
 
 
 
-.reviews{
+.reviews {
     padding: 64px 0px;
 }
 
 
 .reviews_title {
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 24px;
-line-height: 120%;
-letter-spacing: -0.02em;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
 
-color: #1E1E1E;
+    color: #1E1E1E;
 
 
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 
 }
-.carousel-container{
+
+.carousel-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -549,6 +571,7 @@ flex-grow: 0;
     align-items: center;
     gap: 10px;
     overflow: hidden;
+    margin-top: 20px;
 }
 
 .reviews_carousel {
@@ -594,4 +617,887 @@ flex-grow: 0;
     text-align: center;
     height: 3rem;
     width: 3rem;
+}
+
+
+.recipe-section {
+    margin-top: 5rem;
+    width: 100%;
+    max-width: 2000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.recipe-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+
+.img-background {
+    width: 100%;
+    height: 120vh;
+    /* adjust as needed */
+    position: relative;
+
+    /* Combine image and gradient */
+    background-image:
+        linear-gradient(to bottom,
+            rgba(255, 255, 255, 1) 0%,
+            /* White top */
+            rgba(0, 0, 0, 0.5) 1%,
+            rgba(0, 0, 0, 0.5) 99%,
+            /* Black middle */
+            rgba(255, 255, 255, 1) 100%
+            /* White bottom */
+        ),
+        url("../images/cuttingboard.jpg");
+    /* Your image */
+    background-size: 150% auto;
+    /* Fill container */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    z-index: 0;
+}
+
+.recipe-title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-top: -2rem;
+    margin-left: 5rem;
+    flex: 1;
+    line-height: 1.3;
+}
+
+.recipe-title-container h1 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: bold;
+    color: white;
+    font-weight: 700;
+    font-size: 90px;
+}
+
+.recipe-title-container h2 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: bold;
+    color: white;
+    font-weight: 700;
+    font-size: 60px;
+}
+
+.recipe-title-desc {
+    margin-top: 3rem;
+}
+
+.recipe-title-desc p {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: bold;
+    color: rgb(191, 188, 188);
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.recipe-carousel {
+    flex: 1;
+    /* Let it take remaining space */
+    height: 100%;
+}
+
+.recipe-item-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+.recipe-arrow {
+    color: rgba(179, 176, 173, 0.64);
+    font-size: 60px;
+    padding: 2rem;
+    transform: scaleY(1) scaleX(0.5);
+    z-index: 5;
+    transition: all 0.3s ease;
+    background: none;
+    /* Remove default button background */
+    border: none;
+    /* Remove default button border */
+    cursor: pointer;
+}
+
+.recipe-arrow:hover {
+    color: white;
+    transform: scaleY(1.2)scaleX(0.7);
+}
+
+.recipe-card {
+    width: 40%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-img-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    animation: floatUpDown 0.6s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+.recipe-img-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    /* Force GPU acceleration and create layer upfront */
+    will-change: opacity;
+    transform: translateZ(0);
+}
+
+.recipe-img-container:hover::after {
+    opacity: 1;
+}
+
+@keyframes floatUpDown {
+    from {
+        transform: translateY(0);
+        /* Fixed: was missing 'px' */
+    }
+
+    to {
+        transform: translateY(-5px);
+    }
+}
+
+.recipe-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.2),
+            rgba(255, 136, 0, 0.2)),
+        url("../images/Porkkana.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    opacity: 0.8;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.recipe-description {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.recipe-description p {
+    padding: 1rem;
+    color: #757575;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: bold;
+    color: rgba(236, 234, 234, 0.671);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.about-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section-wrap {
+    padding: 120px 0;
+    background: linear-gradient(to right, #FFFFFF, #FFFFF5, #FFFFFF);
+    width: 100%;
+    max-width: 2000px;
+}
+
+.about-container {
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+.title-container {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.about_title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+    color: #1A1A1A;
+    margin: 0;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.core-values-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.value-text-container {
+    margin-top: 3rem;
+    width: 50%;
+}
+
+.value-text-container p {
+    font-size: 20px;
+    margin-top: 3rem;
+    line-height: 1.5;
+}
+
+/* Main container using flexbox for side-by-side layout */
+.value-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0 1rem;
+    width: 50%;
+    position: relative;
+}
+
+/* Card list container - positioned to overlap image */
+.values-list {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    /* Larger gap to spread cards across image height */
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+    width: 40%;
+    margin-right: -170px;
+    /* Push cards to overlap image */
+}
+
+/* Base card styling */
+.value-item {
+    background: white;
+    border-radius: 5px;
+    padding: 1rem 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.item-right {
+    margin-left: 370px;
+    margin-right: -365px;
+}
+
+/* Number styling */
+.value-item h3 {
+    font-size: 1.2rem;
+    color: #000000;
+    margin: 0;
+    font-weight: 300;
+}
+
+.value-item h4 {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin: 0.5rem 0 1rem 0;
+    font-weight: 600;
+}
+
+.value-item p {
+    color: #313131;
+    line-height: 1;
+    margin: 0.2rem 0;
+    font-size: 1rem;
+}
+
+/* Overlap positioning - each card overlaps the previous one */
+.value-item:nth-child(1) {
+    transform: translateY(0);
+    margin-bottom: 0;
+}
+
+.value-item:nth-child(2) {
+    transform: translateY(0);
+    margin-bottom: 0;
+    z-index: 2;
+}
+
+.value-item:nth-child(3) {
+    transform: translateY(0);
+    z-index: 3;
+}
+
+/* Image container - overlaps with cards */
+.image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: end;
+    width: 50%;
+    height: 400px;
+    /* Remove overlap, cards now overlap the image */
+    flex-shrink: 0;
+}
+
+/* Image styling with rounded corners */
+.image-wrapper img {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transform: scaleX(-1);
+}
+
+@media (min-width: 1890px) {
+    .item-right {
+        margin-left: 600px;
+        margin-right: -550px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .value-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .values-list {
+        width: 90%;
+    }
+
+    .image-wrapper {
+        width: 90%;
+        margin-left: 0;
+        height: 500px;
+    }
+
+    .value-item:nth-child(1),
+    .value-item:nth-child(2) {
+        margin-bottom: 1rem;
+    }
+}
+/* Add these media queries at the end of your CSS */
+
+/* Tablet Responsiveness (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .container {
+        padding: 0 32px;
+    }
+
+    .products_details_wrapper {
+        gap: 32px;
+    }
+
+    .product-details-img {
+        width: 350px;
+        height: 350px;
+    }
+
+    .products_details_desc {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .recipe-container {
+        gap: 20px;
+    }
+
+    .recipe-title-container {
+        margin-left: 3rem;
+    }
+
+    .recipe-card {
+        width: 45%;
+    }
+
+    .core-values-section {
+        gap: 32px;
+    }
+
+    .values-list {
+        gap: 80px;
+        margin-right: -140px;
+    }
+
+    .item-right {
+        margin-left: 300px;
+        margin-right: -295px;
+    }
+
+    .footer_wrapper {
+        gap: 40px;
+    }
+}
+
+/* Mobile Large (481px - 768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+    .container {
+        padding: 0 24px;
+    }
+
+    .header_menu_wrapper {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .header_menu_list {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .reglog {
+        padding: 40px 0px 200px 0px;
+    }
+
+    .reglog_title {
+        font-size: clamp(48px, 8vw, 72px);
+    }
+
+    .reglog_form {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .reglog_form > input,
+    .reglog_form > button {
+        width: 100%;
+    }
+
+    .products_details_wrapper {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .products_details_left {
+        justify-content: center;
+    }
+
+    .product-details-img {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+    .favorites_btn {
+        position: absolute;
+        top: 20px;
+        left: auto;
+        right: 20px;
+    }
+
+    .products_details_desc {
+        width: 100%;
+    }
+
+    .img-background {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        background-size: cover;
+        padding: 40px 20px;
+    }
+
+    .recipe-title-container {
+        margin-left: 0;
+        margin-top: 0;
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .recipe-title-container h1 {
+        font-size: clamp(48px, 10vw, 90px);
+    }
+
+    .recipe-title-container h2 {
+        font-size: clamp(36px, 8vw, 60px);
+    }
+
+    .recipe-title-desc p {
+        font-size: clamp(18px, 3vw, 25px);
+    }
+
+    .recipe-carousel {
+        width: 100%;
+    }
+
+    .recipe-item-container {
+        flex-direction: column;
+    }
+
+    .recipe-card {
+        width: 70%;
+    }
+
+    .recipe-arrow {
+        padding: 1rem;
+        font-size: 50px;
+    }
+
+    .about-container {
+        padding: 0 30px;
+    }
+
+    .section-wrap {
+        padding: 80px 0;
+    }
+
+    .title-container {
+        margin-bottom: 60px;
+    }
+
+    .about_title {
+        font-size: clamp(36px, 6vw, 56px);
+    }
+
+    .core-values-section {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .value-text-container,
+    .value-container {
+        width: 100%;
+    }
+
+    .value-text-container {
+        margin-top: 0;
+    }
+
+    .value-text-container p {
+        font-size: 18px;
+        margin-top: 2rem;
+    }
+
+    .value-container {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .values-list {
+        width: 100%;
+        margin-right: 0;
+        gap: 24px;
+    }
+
+    .item-right {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .image-wrapper {
+        width: 100%;
+        height: 400px;
+        justify-content: center;
+    }
+
+    .image-wrapper img {
+        width: 100%;
+    }
+
+    .footer_wrapper {
+        gap: 32px;
+    }
+
+    .carousel_btn {
+        height: 2.5rem;
+        width: 2.5rem;
+        font-size: 18px;
+    }
+}
+
+/* Mobile Small (up to 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .header_menu_wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .header_menu_logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .header_menu_right {
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+    }
+
+    .header_menu_list {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .header_menu_btn {
+        flex-direction: row;
+        width: 100%;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .signin_btn,
+    .register_btn {
+        width: 100%;
+        max-width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .reglog {
+        padding: 30px 0px 150px 0px;
+    }
+
+    .reglog_title {
+        font-size: clamp(36px, 10vw, 72px);
+    }
+
+    .reglog_form {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px 20px 32px;
+    }
+
+    .reglog_form > input,
+    .reglog_form > button {
+        width: 100%;
+    }
+
+    .products_details {
+        padding: 32px 0px 20px 0px;
+    }
+
+    .products_details_wrapper {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .products_details_left {
+        width: 100%;
+    }
+
+    .product-details-img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .favorites_btn {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 12px 0;
+    }
+
+    .products_details_name {
+        font-size: clamp(20px, 5vw, 28px);
+    }
+
+    .products_details_price {
+        font-size: clamp(32px, 8vw, 48px);
+    }
+
+    .products_details_desc {
+        width: 100%;
+    }
+
+    .products_details_buybtn {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .reviews_carousel {
+        flex-direction: column;
+    }
+
+    .review_card {
+        min-width: 100%;
+    }
+
+    .carousel_btn {
+        height: 2.5rem;
+        width: 2.5rem;
+        font-size: 16px;
+    }
+
+    .img-background {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        background-size: cover;
+        padding: 20px 16px;
+    }
+
+    .recipe-title-container {
+        margin-left: 0;
+        margin-top: 0;
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    .recipe-title-container h1 {
+        font-size: clamp(36px, 12vw, 90px);
+    }
+
+    .recipe-title-container h2 {
+        font-size: clamp(28px, 10vw, 60px);
+    }
+
+    .recipe-title-desc {
+        margin-top: 2rem;
+    }
+
+    .recipe-title-desc p {
+        font-size: clamp(16px, 4vw, 25px);
+    }
+
+    .recipe-carousel {
+        width: 100%;
+    }
+
+    .recipe-item-container {
+        flex-direction: column;
+    }
+
+    .recipe-card {
+        width: 85%;
+        height: auto;
+    }
+
+    .recipe-arrow {
+        padding: 0.5rem;
+        font-size: 40px;
+    }
+
+    .about-container {
+        padding: 0 20px;
+    }
+
+    .section-wrap {
+        padding: 40px 0;
+    }
+
+    .title-container {
+        margin-bottom: 40px;
+    }
+
+    .about_title {
+        font-size: clamp(32px, 8vw, 56px);
+    }
+
+    .core-values-section {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .value-text-container,
+    .value-container {
+        width: 100%;
+    }
+
+    .value-text-container {
+        margin-top: 0;
+        padding-top: 1rem;
+    }
+
+    .value-text-container p {
+        font-size: 16px;
+        margin-top: 1.5rem;
+    }
+
+    .value-container {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .values-list {
+        width: 100%;
+        margin-right: 0;
+        gap: 20px;
+    }
+
+    .item-right {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .value-item {
+        padding: 1rem;
+    }
+
+    .image-wrapper {
+        width: 100%;
+        height: 300px;
+        justify-content: center;
+    }
+
+    .image-wrapper img {
+        width: 100%;
+    }
+
+    .footer_wrapper {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .footer_list,
+    .footer_info {
+        width: 100%;
+    }
+
+    .school_logo {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
 }

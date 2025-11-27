@@ -1,81 +1,60 @@
+// Element references (safe form)
 const favoriteBtn = document.querySelector(".favorites_btn");
 const heart = document.querySelector(".heart");
 const text = document.getElementById("text");
 const button = document.querySelector(".toggle_btn");
-const cartCount = document.querySelector('.cart_count');
-const addToCartBtn = document.querySelector('.products_details_buybtn');
-const decreaseBtn = document.getElementById('decrease');
-const increaseBtn = document.getElementById('increase');
-const qtyValue = document.getElementById('qty');
-const carousel = document.querySelector('#reviewCarousel');
-const nextBtn = document.querySelector('.carousel_btn.next');
-const prevBtn = document.querySelector('.carousel_btn.prev');
+const cartCount = document.querySelector(".cart_count");
+const addToCartBtn = document.querySelector(".products_details_buybtn");
+const decreaseBtn = document.getElementById("decrease");
+const increaseBtn = document.getElementById("increase");
+const qtyValue = document.getElementById("qty");
+const carousel = document.querySelector("#reviewCarousel");
+const nextBtn = document.querySelector(".carousel_btn.next");
+const prevBtn = document.querySelector(".carousel_btn.prev");
 
-
-
-
-
-
-  favoriteBtn.addEventListener("click", () => {
-    heart.classList.toggle("active_heart");
-  });
-
-function toggleText() {
-
-
-    text.classList.toggle("open");
-
-    if (text.classList.contains("open")) {
-        button.textContent = "Show less";
-    } else {
-        button.textContent = "Show more";
-    }
+if (favoriteBtn && heart) {
+    favoriteBtn.addEventListener("click", () => {
+        heart.classList.toggle("active_heart");
+    });
 }
 
-  button.addEventListener("click", toggleText())
+if (button && text) {
+    button.addEventListener("click", () => {
+        text.classList.toggle("open");
+        button.textContent = text.classList.contains("open") ? "Show less" : "Show more";
+    });
+}
 
+let quantity = 1;
 
+function updateQuantity() {
+    qtyValue.textContent = quantity;
+}
 
-
-
-
-    let quantity = 1;
-
-
-    decreaseBtn.addEventListener('click', () => {
+if (decreaseBtn) {
+    decreaseBtn.addEventListener("click", () => {
         if (quantity > 1) {
             quantity--;
-            qtyValue.textContent = quantity;
+            updateQuantity();
         }
     });
+}
 
-
-    increaseBtn.addEventListener('click', () => {
+if (increaseBtn) {
+    increaseBtn.addEventListener("click", () => {
         quantity++;
-        qtyValue.textContent = quantity;
+        updateQuantity();
     });
-
-
-
-
-
+}
 
 let count = 0;
 
-addToCartBtn.addEventListener('click', () => {
-    count++;
-    cartCount.textContent = count;
-});
-
-
-
-
-
-
-
-
-
-
+if (addToCartBtn && cartCount) {
+    addToCartBtn.addEventListener("click", () => {
+        count++;
+        cartCount.textContent = count;
+    });
+}
 
 let cardWidth = 280; 
 let isMoving = false;
@@ -86,7 +65,6 @@ function moveNext() {
 
     carousel.style.transition = "transform 0.4s ease";
     carousel.style.transform = `translateX(-${cardWidth}px)`;
-
 
     setTimeout(() => {
         carousel.appendChild(carousel.firstElementChild);
@@ -100,7 +78,6 @@ function movePrev() {
     if (isMoving) return;
     isMoving = true;
 
-
     carousel.style.transition = "none";
     carousel.insertBefore(carousel.lastElementChild, carousel.firstElementChild);
     carousel.style.transform = `translateX(-${cardWidth}px)`;
@@ -112,6 +89,5 @@ function movePrev() {
     }, 20);
 }
 
-nextBtn.addEventListener('click', moveNext);
-prevBtn.addEventListener('click', movePrev);
-
+if (nextBtn) nextBtn.addEventListener("click", moveNext);
+if (prevBtn) prevBtn.addEventListener("click", movePrev);
