@@ -9,7 +9,7 @@
                 <div class="products_details_wrapper">
                     <div class="products_details_left">
                         <div class="product-details-img">
-                            <img src="{{ asset('images/Porkkana.jpg') }}" alt="photo">
+                            <img src="{{ asset('images/Porkkana.jpg') }}" alt="photo" loading="lazy">
                         </div>
                         <button class="favorites_btn">
                             <span class="heart">❤</span>
@@ -27,7 +27,7 @@
                             and more recently with desktop publishing software like Aldus PageMaker including versions of
                             Lorem Ipsum.
                         </div>
-                        <button class="toggle_btn" onclick="toggleText()">Show more</button>
+                        <button class="toggle_btn">Show more</button>
                         <div class="products_details_quantity">
                             <button class="qty-btn" id="decrease">-</button>
                             <span class="qty-value" id="qty">1</span>
@@ -159,29 +159,39 @@
         <section class="recipe-section">
             <div class="recipe-container">
                 <div class="img-background">
-                    <div class="recipe-title-container">
-                        <h1>Makua pöytään</h1>
-                        <h2>resepti-ideoilla!</h2>
-                        <div class="recipe-title-desc">
-                            <p>Tutustu kaupamme maistuviin resepteihin tästä ja löydä uusia ideoita arkeen sekä juhlaan.
-                                Inspiroidu herkullisista makuyhdistelmistä ja kokeile reseptejä, jotka tuovat iloa
-                                keittiöösi.</p>
+                    <div class="recipe-content-wrapper">
+                        <!-- Left side: Text (50%) -->
+                        <div class="recipe-title-container" id="recipeTitle">
+                            <h1>Makua pöytään</h1>
+                            <h2>resepti-ideoilla!</h2>
+                            <div class="recipe-title-desc">
+                                <p>Tutustu kaupamme maistuviin resepteihin tästä ja löydä uusia ideoita arkeen sekä juhlaan.
+                                    Inspiroidu herkullisista makuyhdistelmistä ja kokeile reseptejä, jotka tuovat iloa
+                                    keittiöösi.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="recipe-carousel">
-                        <div class="recipe-item-container">
-                            <span class="recipe-arrow">&#10094;</span>
-                            <div class="recipe-card">
-                                <div class="recipe-img-container">
-                                    <div class="recipe-img"></div>
+
+                        <!-- Right side: Carousel (50%) -->
+                        <div class="recipe-carousel" id="recipeCarousel">
+                            <div class="recipe-item-container">
+                                <button class="recipe-arrow left-arrow" id="recipePrev">&#10094;</button>
+
+                                <div class="recipe-card" id="recipeCard">
+                                    <div class="recipe-img-container">
+                                        <div class="recipe-img"></div>
+                                    </div>
+                                </div>
+
+                                <button class="recipe-arrow right-arrow" id="recipeNext">&#10095;</button>
+
+                                <div class="recipe"> 
+                                    <h2>Porkkana keitto</h2>
                                 </div>
                             </div>
-                            <span class="recipe-arrow">&#10095;</span>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
         <section class="about-section">
             <div class="section-wrap">
@@ -249,5 +259,5 @@
             </div>
         </section>
     </main>
-    <script src={{ asset('js/product.js') }}></script>
+    <script src="{{ asset('js/product.js') }}" defer></script>
 @endsection

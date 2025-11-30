@@ -12,6 +12,13 @@ const carousel = document.querySelector("#reviewCarousel");
 const nextBtn = document.querySelector(".carousel_btn.next");
 const prevBtn = document.querySelector(".carousel_btn.prev");
 
+const recipeTitle = document.getElementById("recipeTitle");
+const recipeCarousel = document.getElementById("recipeCarousel");
+const recipeItem = document.getElementById("recipeItem");
+const recipeArrows = document.querySelectorAll(".recipe-arrow");
+
+let isExpanded = false;
+
 if (favoriteBtn && heart) {
     favoriteBtn.addEventListener("click", () => {
         heart.classList.toggle("active_heart");
@@ -56,7 +63,7 @@ if (addToCartBtn && cartCount) {
     });
 }
 
-let cardWidth = 280; 
+let cardWidth = 280;
 let isMoving = false;
 
 function moveNext() {
@@ -88,6 +95,48 @@ function movePrev() {
         setTimeout(() => isMoving = false, 400);
     }, 20);
 }
+
+recipeCard.addEventListener('click', (e) => {
+    if (e.target.closest('.recipe-arrow')) return;
+
+    toggleRecipeView();
+});
+
+function toggleRecipeView() {
+    isExpanded = !isExpanded;
+
+    requestAnimationFrame(() => {
+        recipeTitle.classList.toggle('collapsed');
+        recipeCarousel.classList.toggle('expanded');
+
+        recipeCarousel.querySelectorAll('*').forEach(child => {
+            child.classList.toggle('expanded');
+        });
+
+        recipeArrows.forEach(arrow => {
+            arrow.classList.toggle('collapsed');
+        });
+    });
+}
+
+
+document.getElementById('recipePrev')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    // Add your carousel navigation logic here
+    console.log('Previous recipe');
+});
+
+document.getElementById('recipeNext')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    // Add your carousel navigation logic here
+    console.log('Next recipe');
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isExpanded) {
+        toggleRecipeView();
+    }
+});
 
 if (nextBtn) nextBtn.addEventListener("click", moveNext);
 if (prevBtn) prevBtn.addEventListener("click", movePrev);
