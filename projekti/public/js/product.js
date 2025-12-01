@@ -17,6 +17,10 @@ const recipeCarousel = document.getElementById("recipeCarousel");
 const recipeItem = document.getElementById("recipeItem");
 const recipeArrows = document.querySelectorAll(".recipe-arrow");
 
+const buttons = document.querySelectorAll('.recipe-tutorial-toggle-btn');
+const Ainesosat = document.getElementById("Ainesosat");
+const Valmistus = document.getElementById("Valmistus");
+
 let isExpanded = false;
 
 if (favoriteBtn && heart) {
@@ -119,6 +123,23 @@ function toggleRecipeView() {
     });
 }
 
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        // Toggle active styling
+        buttons.forEach(b => b.classList.remove("toggled"));
+        btn.classList.add("toggled");
+
+        // Switch content
+        if (btn.dataset.target === "Ainesosat") {
+            Ainesosat.classList.add("selected");
+            Valmistus.classList.remove("selected");
+        } else {
+            Ainesosat.classList.remove("selected");
+            Valmistus.classList.add("selected");
+        }
+    });
+});
 
 document.getElementById('recipePrev')?.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -131,6 +152,7 @@ document.getElementById('recipeNext')?.addEventListener('click', (e) => {
     // Add your carousel navigation logic here
     console.log('Next recipe');
 });
+
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isExpanded) {

@@ -26,8 +26,12 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
+ul {
 	list-style: none;
+}
+ol {
+    list-style: decimal; 
+    padding-left: 20px; 
 }
 blockquote, q {
 	quotes: none;
@@ -41,3 +45,45 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* --- Minimal Scrollbar Styles for ALL Scrollable Elements --- */
+
+/* 1. WebKit Browsers (Chrome, Safari, Edge) */
+/* --- Minimal Scrollbar Styles for ALL Scrollable Elements --- */
+
+/* 1. WebKit Browsers (Chrome, Safari, Edge) */
+
+*::-webkit-scrollbar {
+	width: 8px; 
+	height: 8px;
+    background: transparent; 
+}
+
+*::-webkit-scrollbar-track {
+	background: transparent;
+	border-radius: 0px; 
+}
+
+*::-webkit-scrollbar-thumb {
+	/* The thumb remains the visible, draggable bar */
+	background: #555; 
+	border-radius: 5px; 
+}
+
+*::-webkit-scrollbar-thumb:hover {
+	background: #777; 
+}
+
+/* 💥 THIS IS THE FIX FOR THE TRIANGLES (Buttons) 💥 */
+*::-webkit-scrollbar-button {
+    display: none; /* Hides the arrows at the top and bottom */
+}
+
+
+/* 2. Firefox */
+
+body {
+    scrollbar-width: thin;
+	/* Firefox does not display buttons when scrollbar-width is set to 'thin' or colors are set */
+	scrollbar-color: #555 transparent; 
+}
+/* Remember to apply the Firefox rule to other scrollable containers like .recipe-tutorial if needed. */

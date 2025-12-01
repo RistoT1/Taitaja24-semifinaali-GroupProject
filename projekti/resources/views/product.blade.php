@@ -3,38 +3,37 @@
 @section('title', 'Tuotteet')
 
 @section('content')
+    @dump($tuotteet)
     <main>
         <section class="products_details">
             <div class="container">
                 <div class="products_details_wrapper">
-                    <div class="products_details_left">
-                        <div class="product-details-img">
-                            <img src="{{ asset('images/Porkkana.jpg') }}" alt="photo" loading="lazy">
+                    @foreach($tuotteet as $tuote)
+                        <div class="products_details_left">
+                            <div class="product-details-img">
+                                <img src="{{ asset('images/' . $tuote->Kuva) }}.jpg" alt="photo" loading="lazy">
+                            </div>
+                            <button class="favorites_btn">
+                                <span class="heart">❤</span>
+                            </button>
                         </div>
-                        <button class="favorites_btn">
-                            <span class="heart">❤</span>
-                        </button>
-                    </div>
-                    <div class="products_details_right">
-                        <h2 class="products_details_name">Porkkana 1kg</h2>
-                        <h3 class="products_details_price">50€</h3>
-                        <div class="products_details_desc" id="text">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                            of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                            but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                            popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                            and more recently with desktop publishing software like Aldus PageMaker including versions of
-                            Lorem Ipsum.
+                        <div class="products_details_right">
+
+                            <h2 class="products_details_name"> {{ $tuote->Nimi }}</h2>
+
+                            <h3 class="products_details_price">{{ $tuote->Hinta  }}€</h3>
+                            <div class="products_details_desc" id="text">
+                                {{$tuote ->Kuvaus}}
+                            </div>
+                            <button class="toggle_btn">Show more</button>
+                            <div class="products_details_quantity">
+                                <button class="qty-btn" id="decrease">-</button>
+                                <span class="qty-value" id="qty">1</span>
+                                <button class="qty-btn" id="increase">+</button>
+                            </div>
+                            <button class="products_details_buybtn">Lisää koriin</button>
                         </div>
-                        <button class="toggle_btn">Show more</button>
-                        <div class="products_details_quantity">
-                            <button class="qty-btn" id="decrease">-</button>
-                            <span class="qty-value" id="qty">1</span>
-                            <button class="qty-btn" id="increase">+</button>
-                        </div>
-                        <button class="products_details_buybtn">Lisää koriin</button>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -184,8 +183,55 @@
 
                                 <button class="recipe-arrow right-arrow" id="recipeNext">&#10095;</button>
 
-                                <div class="recipe"> 
+                                <div class="recipe">
                                     <h2>Porkkana keitto</h2>
+                                    <div class="recipe-tutorial-toggle-container">
+                                        <button class="recipe-tutorial-toggle-btn toggled"
+                                            data-target="Ainesosat">AinesOsat</button>
+                                        <button class="recipe-tutorial-toggle-btn"
+                                            data-target="Valmistus">Valmistus</button>
+                                    </div>
+                                    <div class="recipe-tutorial">
+                                        <div class="tutorial-section selected" id="Ainesosat">
+                                            <h3>AinesOsat</h3>
+                                            <ul>
+                                                <li>400 g (7–8) Pirkka porkkanoita</li>
+                                                <li>2 Pirkka perunaa (punainen pussi)</li>
+                                                <li>1 iso sipuli</li>
+                                                <li>1 rkl öljyä</li>
+                                                <li>1/2 l vettä</li>
+                                                <li>1 kasvisliemikuutio</li>
+                                                <li>1 tl Pirkka rakuunaa</li>
+                                                <li>1/4 tl mustapippuria</li>
+                                                <li>1/2 dl kermaa</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tutorial-section" id="Valmistus">
+                                            <h3>Valmistusohjeet</h3>
+                                            <ol>
+                                                <li>
+                                                    Paloittele kuoritut porkkanat ja perunat.
+                                                    Hienonna kuorittu sipuli.
+                                                    Kuullota sipulit öljyssä kattilassa.
+                                                    Lisää porkanat ja perunat. Sekoittele hetki.
+                                                    Kaada vesi kattilaan ja lisää liemikuutio.
+                                                    Keitä noin 20 minuuttia, kunnes kasvikset ovat pehmeitä.
+                                                </li>
+                                                <li>
+                                                    Kaada keitinvesi talteen toiseen astiaan.
+                                                    Soseuta kasvikset sauvasekoittimella tai sähkövatkaimella kattilassa.
+                                                    Lisää keitinlientä joukkoon niin paljon, että keitosta tulee sopivan
+                                                    sakeaa.
+                                                </li>
+                                                <li>
+                                                    Mausta rakuunalla ja mustapippurilla.
+                                                    Lisää halutessasi kermaa.
+                                                    Tarjoa porkkanasosekeitto höyryävän kuumana esimerkiksi
+                                                    karjalanpiirakoiden kanssa.
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

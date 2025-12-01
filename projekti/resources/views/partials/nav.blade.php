@@ -17,7 +17,7 @@
                     </ul>
                     <div class="header_menu_btn">
                         <button class="signin_btn"><a href="/kirjaudu">Sign in</a></button>
-                        <button class="register_btn"><a href="register.html">Register</a></button>
+                        <button class="register_btn"><a href="/rekisteroidy">Register</a></button>
                     </div>
                 </div>
             </nav>
