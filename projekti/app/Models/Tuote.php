@@ -20,4 +20,5 @@ class Tuote extends Model
         'Kuva',
         'Tila',
     ];
+    
 }

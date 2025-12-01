@@ -14,10 +14,10 @@ class TuotteetController extends Controller
     public function index(Request $request)
     {
         $tuotteet = $request->has('id')
-            ? Tuote::where('id', $request->id)->get()
+            ? Tuote::where('Tuote_ID', $request->id)->get()
             : Tuote::all();
 
-        return view('tuotteet', compact('tuotteet'));
+        return view('product', compact('tuotteet'));
     }
 
     // Admin-facing API

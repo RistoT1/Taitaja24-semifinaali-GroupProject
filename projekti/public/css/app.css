@@ -874,6 +874,83 @@ ul {
     transform: scaleX(0.5) scale(0.9);
 }
 
+.recipe {
+    opacity: 0;
+    max-width: 0;
+    max-height: 0;
+    flex: 0;
+    display: none;
+}
+
+.recipe-tutorial-toggle-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.recipe-tutorial-toggle-btn.toggled {
+    background-color: #2C2C2C;
+}
+
+.recipe.expanded {
+    display: flex;
+    opacity: 1;
+    max-width: 40%;
+    max-height: 75%;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.recipe h2 {
+    text-align: center;
+    padding: 5px;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: clamp(30px, 4vw, 60px);
+    color: white;
+    margin: 20px 0;
+
+}
+
+.recipe-tutorial {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1rem;
+    height: 500000px;
+    overflow-y: auto;
+}
+
+
+.tutorial-section {
+    display: none;
+}
+
+.tutorial-section.selected {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+.tutorial-section h3{
+     font-family: "Inter", sans-serif;
+    color: rgb(191, 188, 188);
+    font-weight: 500;
+    font-size: clamp(20px, 1.5vw, 30px);
+    line-height: 1.6;
+    margin: 0;
+}
+.tutorial-section li {
+    font-family: "Inter", sans-serif;
+    color: rgb(191, 188, 188);
+    font-weight: 500;
+    font-size: clamp(8px, 1.2vw, 25px);
+    line-height: 1.6;
+    margin: 0;
+}
+
+
 .about-section {
     width: 100%;
     display: flex;
