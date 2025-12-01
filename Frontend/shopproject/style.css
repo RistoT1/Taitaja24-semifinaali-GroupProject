@@ -101,6 +101,272 @@ background: #d9d9d9;
 
 }
 
+.about-shop {
+    padding: 80px 0;
+    background-color: #f7f7f7;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1 1 500px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.about-text h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.about-buttons .btn-light,
+.about-buttons .btn-dark {
+    padding: 10px 22px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.about-buttons .btn-light {
+    background-color: #efefef;
+    border: 1px solid #ccc;
+}
+
+.about-buttons .btn-light:hover {
+    background-color: #e0e0e0;
+}
+
+.about-buttons .btn-dark {
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #1e1e1e;
+}
+
+.about-buttons .btn-dark:hover {
+    background-color: #333;
+}
+
+.about-image {
+    flex: 1 1 450px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .about-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .about-text, .about-image {
+        animation-delay: 0s !important;
+    }
+
+    .about-buttons {
+        justify-content: center;
+    }
+}
+/* Features Section */
+.features-shop {
+    padding: 80px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.features-shop h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.features-intro {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+.features-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background-color: #f7f7f7;
+    padding: 30px 20px;
+    border-radius: 12px;
+    flex: 1 1 250px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 16px;
+    color: #333;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+    .features-cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+/* Mission Section */
+.mission-shop {
+    padding: 80px 0;
+    background-color: #f0f8ff;
+}
+
+.mission-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.mission-text {
+    flex: 1 1 500px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.mission-text h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.mission-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.mission-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.mission-buttons .btn-light,
+.mission-buttons .btn-dark {
+    padding: 10px 22px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mission-buttons .btn-light {
+    background-color: #efefef;
+    border: 1px solid #ccc;
+}
+
+.mission-buttons .btn-light:hover {
+    background-color: #e0e0e0;
+}
+
+.mission-buttons .btn-dark {
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #1e1e1e;
+}
+
+.mission-buttons .btn-dark:hover {
+    background-color: #333;
+}
+
+.mission-image {
+    flex: 1 1 450px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.mission-image img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+    .mission-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .mission-text, .mission-image {
+        animation-delay: 0s !important;
+    }
+
+    .mission-buttons {
+        justify-content: center;
+    }
+}
+
 
 .body_container{
     background-image: url("images/chernyi_rebenok.webp");
@@ -138,10 +404,10 @@ body {
     background-color: #f9f9f9;
     
   }
-
+/*
   .favourite-picks {
-    max-width: 1000px;
-    margin: 0 auto;
+    
+    
     padding-top: 40px;
     
   }
@@ -155,7 +421,7 @@ body {
   .picks-grid {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
+    
   }
 
   .pick-item {
@@ -183,10 +449,72 @@ body {
     padding: 10px;
     font-weight: bold;
     margin: 0;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #dfd8d8;
+    color: #4e4a4a;
   }
-  
+  */
+  /* Categories Section */
+.categories-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 28px;
+}
+
+.category-card {
+  background: #f8f8f8;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.category-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.category-info {
+  padding: 18px 20px;
+  text-align: left;
+}
+
+.category-info h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.category-info p {
+  font-size: 15px;
+  color: #555;
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
   .scroll-wrapper {
     width: 100%;
     padding: 20px 0;
@@ -201,7 +529,7 @@ body {
     padding-top: 100px;          
     padding-bottom: 130px;             
     scroll-snap-type: x mandatory;   
-    background-image: url(images/chernyi_rebenok.webp);
+    
   }
 
   .scroll-container::-webkit-scrollbar {
@@ -222,12 +550,13 @@ body {
   .item {
     min-width: 250px;                 
     background: #fff;
-    border: 2px solid #000000;        
+    border: 2px solid #e9e7e7;        
     border-radius: 16px;
     padding: 14px;
+    box-shadow: 5px 5px 5px #e7e7e7;
     position: relative;
     scroll-snap-align: start;
-    background-color: #eeecec;
+    
   }
 
   .item img {
@@ -254,6 +583,74 @@ body {
   .bfriday{
     font-size: 40px;
   }
+/* Reviews Section */
+.reviews-section {
+  padding: 80px 0;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.reviews-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.reviews-subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 50px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.review-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.review-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-header h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.stars {
+  color: #ffb400;
+  font-size: 16px;
+}
+
+.review-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
 
   .footer_wrapper{
     padding: 30px 0px 56px 0px;
@@ -314,3 +711,4 @@ max-width: 350px;
     width: 292px;
     height: 54px;
 }
+
