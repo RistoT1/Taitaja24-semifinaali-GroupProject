@@ -7,18 +7,24 @@ use Illuminate\Http\Request;
 
 class TuotteetController extends Controller
 {
-    //index hakee kaikki
-
-
     // User-facing view
     public function index(Request $request)
     {
-        $tuotteet = $request->has('id')
-            ? Tuote::where('Tuote_ID', $request->id)->get()
-            : Tuote::all();
+        if ($request->filled('id')) {
+            $tuotteet = Tuote::where('Tuote_ID', $request->id)->get();
 
-        return view('product', compact('tuotteet'));
+            // If no product found, return a different view
+            if ($tuotteet->isEmpty()) {
+                return view('product_not_found'); // <-- your fallback view
+            }
+
+            return view('product', compact('tuotteet'));
+        }
+
+        $tuotteet = Tuote::all();
+        return view('kirjaudu', compact('tuotteet'));
     }
+
 
     // Admin-facing API
     public function apiIndex(Request $request)

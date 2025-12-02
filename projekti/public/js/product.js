@@ -4,7 +4,7 @@ const heart = document.querySelector(".heart");
 const text = document.getElementById("text");
 const button = document.querySelector(".toggle_btn");
 const cartCount = document.querySelector(".cart_count");
-const addToCartBtn = document.querySelector(".products_details_buybtn");
+const addToCartBtn = document.getElementById("addtocart");
 const decreaseBtn = document.getElementById("decrease");
 const increaseBtn = document.getElementById("increase");
 const qtyValue = document.getElementById("qty");
@@ -16,11 +16,13 @@ const recipeTitle = document.getElementById("recipeTitle");
 const recipeCarousel = document.getElementById("recipeCarousel");
 const recipeItem = document.getElementById("recipeItem");
 const recipeArrows = document.querySelectorAll(".recipe-arrow");
+const recipeCard = document.getElementById("recipeCard");
 
 const buttons = document.querySelectorAll('.recipe-tutorial-toggle-btn');
 const Ainesosat = document.getElementById("Ainesosat");
 const Valmistus = document.getElementById("Valmistus");
 
+const notification = document.getElementById('notification');
 let isExpanded = false;
 
 if (favoriteBtn && heart) {
@@ -60,12 +62,55 @@ if (increaseBtn) {
 
 let count = 0;
 
-if (addToCartBtn && cartCount) {
-    addToCartBtn.addEventListener("click", () => {
-        count++;
-        cartCount.textContent = count;
+addToCartBtn.addEventListener('click', async () => {
+    addToCartBtn.classList.toggle("loading");
+    addToCartBtn.innerHTML="Lisätään..."
+    const qty = qtyValue.textContent;
+    if (isNaN(qty) || qty < 0 || qty > 99) {
+        console.log("trs")
+        return;
+    }
+    const productId = addToCartBtn.dataset.productId;
+    console.log("id", productId);
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    const response = await fetch("/cart", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": csrfToken,
+        },
+        body: JSON.stringify({
+            quantity: qty,
+            TuoteID: productId
+        })
     });
-}
+    if (!response.ok) {
+        throw new Error(`Virheellinen vastaus: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
+    if (data.data.success === true) {
+        notification.innerHTML = "<p>Tuote lisätty onnistuneesti</p>";
+
+        // Start hidden
+        notification.style.opacity = 0;
+
+        // Fade in after a short delay
+        setTimeout(() => {
+            notification.style.transition = "opacity 0.5s ease";
+            notification.style.opacity = 1;
+        }, 100); // delay before fade-in
+    }
+    addToCartBtn.classList.toggle("loading");
+    addToCartBtn.innerHTML="Lisää koriin"
+    setTimeout(() => {
+        notification.style.opacity = 0;
+    }, 3000);
+
+
+
+});
 
 let cardWidth = 280;
 let isMoving = false;

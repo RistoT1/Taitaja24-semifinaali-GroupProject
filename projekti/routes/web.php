@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Middleware\TwoFactorMiddleware;
+use App\Http\Controllers\CartController;
 
 Route::get('/test2', function () {
     return view('test2');
@@ -83,6 +84,6 @@ Route::get('/2fa', function () {
 Route::post('/2fa', [AuthController::class, 'verifyTwoFactor'])
     ->middleware(TwoFactorMiddleware::class);
 
-Route::get('/product', function(){
-    return view('product');
-});
+Route::get('/product', [TuotteetController::class, 'index']);
+
+Route::post('/cart', [CartController::class, 'store']);

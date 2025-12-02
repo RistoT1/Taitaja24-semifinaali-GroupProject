@@ -518,6 +518,7 @@ ul {
     align-items: center;
     text-align: center;
     color: #1E1E1E;
+    cursor: pointer;
 
     transition: 0.5s;
 }
@@ -525,6 +526,13 @@ ul {
 .products_details_buybtn:hover {
     background-color: #1E1E1E;
     color: #FFFFFF;
+}
+
+.products_details_buybtn.loading {
+    pointer-events: none;
+    background-color: #000000 !important;
+    color: #FFFFFF;
+    cursor: auto;
 }
 
 
@@ -933,14 +941,16 @@ ul {
     height: 100%;
     flex-direction: column;
 }
-.tutorial-section h3{
-     font-family: "Inter", sans-serif;
+
+.tutorial-section h3 {
+    font-family: "Inter", sans-serif;
     color: rgb(191, 188, 188);
     font-weight: 500;
     font-size: clamp(20px, 1.5vw, 30px);
     line-height: 1.6;
     margin: 0;
 }
+
 .tutorial-section li {
     font-family: "Inter", sans-serif;
     color: rgb(191, 188, 188);

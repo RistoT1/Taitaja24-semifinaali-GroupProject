@@ -3,7 +3,6 @@
 @section('title', 'Tuotteet')
 
 @section('content')
-    @dump($tuotteet)
     <main>
         <section class="products_details">
             <div class="container">
@@ -23,7 +22,7 @@
 
                             <h3 class="products_details_price">{{ $tuote->Hinta  }}€</h3>
                             <div class="products_details_desc" id="text">
-                                {{$tuote ->Kuvaus}}
+                                {{$tuote->Kuvaus}}
                             </div>
                             <button class="toggle_btn">Show more</button>
                             <div class="products_details_quantity">
@@ -31,7 +30,11 @@
                                 <span class="qty-value" id="qty">1</span>
                                 <button class="qty-btn" id="increase">+</button>
                             </div>
-                            <button class="products_details_buybtn">Lisää koriin</button>
+                            <div class="notification" id="notification">
+
+                            </div>
+                            <button class="products_details_buybtn" id="addtocart"
+                                data-product-id="{{ $tuote->Tuote_ID }}">Lisää koriin</button>
                         </div>
                     @endforeach
                 </div>
