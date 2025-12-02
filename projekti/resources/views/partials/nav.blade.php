@@ -7,13 +7,9 @@
                         alt="logo"></button>
                 <div class="header_menu_right">
                     <ul class="header_menu_list">
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Solutions</a></li>
-                        <li><a href="#">Community</a></li>
-                        <li><a href="#">Resources</a></li>
-                        <li><a href="#">Pricing</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#">About</a></li>
                         <li><a href="#">Contacts</a></li>
-                        <li><a href="#">Link</a></li>
                     </ul>
                     <div class="header_menu_btn">
                         <button class="signin_btn"><a href="/kirjaudu">Sign in</a></button>

@@ -87,3 +87,7 @@ Route::post('/2fa', [AuthController::class, 'verifyTwoFactor'])
 Route::get('/product', [TuotteetController::class, 'index']);
 
 Route::post('/cart', [CartController::class, 'store']);
+
+Route::get('/', function () {
+    return view('index');
+});

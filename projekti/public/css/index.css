@@ -1,0 +1,744 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1136px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* OPTIMIZED IMAGES */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/***********************************************************
+   HEADER SECTION
+************************************************************/
+.header_menu {
+  padding: 5px 0;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header_menu_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1136px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header_menu_logo {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+}
+
+.header_menu_right {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.header_menu_list {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header_menu_list > li > a {
+  font-size: 18px;
+  color: #1E1E1E;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.header_menu_list > li > a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #2C2C2C;
+  transition: width 0.3s ease;
+}
+
+.header_menu_list > li > a:hover {
+  color: #2C2C2C;
+}
+
+.header_menu_list > li > a:hover::after {
+  width: 100%;
+}
+
+/***********************************************************
+   BUTTONS - GLOBAL STYLES
+************************************************************/
+.signin_btn,
+.register_btn {
+  width: 83px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  font-weight: 500;
+}
+
+.signin_btn {
+  background: #E3E3E3;
+  border: 1px solid #767676;
+  color: #1E1E1E;
+}
+
+.signin_btn:hover {
+  background: #2C2C2C;
+  color: #F5F5F5;
+  transform: translateY(-2px);
+}
+
+.signin_btn:active {
+  transform: translateY(0);
+}
+
+.register_btn {
+  background: #2C2C2C;
+  color: #fff;
+  border: 1px solid #2C2C2C;
+}
+
+.register_btn:hover {
+  background: #E3E3E3;
+  color: #1E1E1E;
+  border-color: #767676;
+  transform: translateY(-2px);
+}
+
+.register_btn:active {
+  transform: translateY(0);
+}
+
+/***********************************************************
+   HERO SECTION - FULLY OPTIMIZED
+************************************************************/
+.body_container {
+  position: relative;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Background image as pseudo-element for GPU acceleration */
+.body_container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/chernyi_rebenok.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Optional parallax effect - uses CSS variable set by JavaScript */
+@media (prefers-reduced-motion: no-preference) {
+  .body_container::before {
+    transform: translateZ(0) translateY(var(--scroll-y, 0));
+  }
+}
+
+.orderfresh_cont {
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+}
+
+.orderfresh_cont > h1 {
+  font-size: 60px;
+  color: #f0dcdc;
+  margin: 0 0 20px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.orderfresh_cont > h2 {
+  font-size: 25px;
+  color: #dfdcd8;
+  margin: 0;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  font-weight: 400;
+}
+
+.fresh_menu_btn {
+  display: flex;
+  gap: 25px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+/***********************************************************
+   ABOUT SECTION - OPTIMIZED
+************************************************************/
+.about-shop {
+  padding: 80px 0;
+  background-color: #f7f7f7;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.about-text,
+.about-image {
+  flex: 1 1 450px;
+  min-width: 0;
+}
+
+/* Fade-in animation controlled by JavaScript Intersection Observer */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-text h2 {
+  font-size: 38px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: #1e1e1e;
+  font-weight: 700;
+}
+
+.about-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.about-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.btn-light,
+.btn-dark {
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn-light {
+  background: #efefef;
+  border-color: #ccc;
+  color: #1e1e1e;
+}
+
+.btn-light:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.btn-light:active {
+  transform: translateY(0);
+}
+
+.btn-dark {
+  background: #1e1e1e;
+  color: #fff;
+  border-color: #1e1e1e;
+}
+
+.btn-dark:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-dark:active {
+  transform: translateY(0);
+}
+
+.about-image img {
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/***********************************************************
+   MISSION SECTION
+************************************************************/
+.mission-shop {
+  padding: 80px 0;
+  background-color: #f0f8ff;
+}
+
+.mission-container {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.mission-text,
+.mission-image {
+  flex: 1 1 450px;
+  min-width: 0;
+}
+
+.mission-text h2 {
+  font-size: 38px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: #1e1e1e;
+  font-weight: 700;
+}
+
+.mission-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.mission-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.mission-image img {
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/***********************************************************
+   CATEGORIES SECTION - OPTIMIZED GRID
+************************************************************/
+.categories-section {
+  padding: 80px 0;
+  background: #fff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1e1e1e;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.category-card {
+  background: #f8f8f8;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+  will-change: transform;
+}
+
+.category-card:active {
+  transform: translateY(-4px);
+}
+
+.category-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+.category-info {
+  padding: 18px 20px;
+  text-align: left;
+}
+
+.category-info h3 {
+  font-size: 20px;
+  margin: 0 0 8px;
+  font-weight: 600;
+  color: #1e1e1e;
+}
+
+.category-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/***********************************************************
+   REVIEWS SECTION - OPTIMIZED
+************************************************************/
+.reviews-section {
+  padding: 80px 0;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.reviews-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1e1e1e;
+}
+
+.reviews-subtitle {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.review-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  will-change: transform;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.review-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid #f0f0f0;
+}
+
+.review-header > div {
+  flex: 1;
+}
+
+.review-header h3 {
+  margin: 0 0 5px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e1e1e;
+}
+
+.stars {
+  color: #ffa500;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.review-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
+
+/***********************************************************
+   FOOTER (if you have one)
+************************************************************/
+.footer {
+  background: #1e1e1e;
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/***********************************************************
+   RESPONSIVE DESIGN - MOBILE FIRST
+************************************************************/
+
+/* Tablets */
+@media (max-width: 900px) {
+  .about-container,
+  .mission-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mission-container {
+    flex-direction: column-reverse;
+  }
+
+  .about-buttons,
+  .mission-buttons {
+    justify-content: center;
+  }
+
+  .orderfresh_cont > h1 {
+    font-size: 48px;
+  }
+
+  .orderfresh_cont > h2 {
+    font-size: 22px;
+  }
+
+  .body_container {
+    height: 700px;
+  }
+
+  .about-text h2,
+  .mission-text h2 {
+    font-size: 32px;
+  }
+
+  .section-title,
+  .reviews-title {
+    font-size: 36px;
+  }
+
+  .header_menu_list {
+    display: none;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .orderfresh_cont > h1 {
+    font-size: 36px;
+  }
+
+  .orderfresh_cont > h2 {
+    font-size: 18px;
+  }
+
+  .body_container {
+    height: 600px;
+  }
+
+  .fresh_menu_btn {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .signin_btn,
+  .register_btn {
+    width: 140px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .about-shop,
+  .mission-shop,
+  .categories-section,
+  .reviews-section {
+    padding: 50px 0;
+  }
+
+  .about-text h2,
+  .mission-text h2 {
+    font-size: 28px;
+  }
+
+  .about-text p,
+  .mission-text p {
+    font-size: 16px;
+  }
+
+  .section-title,
+  .reviews-title {
+    font-size: 28px;
+  }
+
+  .section-subtitle,
+  .reviews-subtitle {
+    font-size: 16px;
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-buttons,
+  .mission-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-light,
+  .btn-dark {
+    width: 100%;
+    text-align: center;
+  }
+
+  .header_menu_logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .header_menu_right {
+    gap: 12px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 400px) {
+  .orderfresh_cont > h1 {
+    font-size: 28px;
+  }
+
+  .orderfresh_cont > h2 {
+    font-size: 16px;
+  }
+
+  .body_container {
+    height: 500px;
+  }
+}
+
+/***********************************************************
+   ACCESSIBILITY & PERFORMANCE
+************************************************************/
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .body_container::before {
+    transform: translateZ(0) !important;
+  }
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #2C2C2C;
+  outline-offset: 2px;
+}
+
+/* Loading skeleton (optional) */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+  .header_menu,
+  .fresh_menu_btn,
+  .about-buttons,
+  .mission-buttons {
+    display: none;
+  }
+}
