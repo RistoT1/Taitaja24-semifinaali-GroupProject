@@ -10,19 +10,56 @@ class TuotteetController extends Controller
     // User-facing view
     public function index(Request $request)
     {
+
+        //specific product page
         if ($request->filled('id')) {
             $tuotteet = Tuote::where('Tuote_ID', $request->id)->get();
 
             // If no product found, return a different view
             if ($tuotteet->isEmpty()) {
-                return view('product_not_found'); // <-- your fallback view
+                return view('products'); // <-- your fallback view
             }
 
             return view('product', compact('tuotteet'));
         }
 
-        $tuotteet = Tuote::all();
-        return view('//täytä', compact('tuotteet'));
+        $limit = 20;
+
+        // No cursor → first page
+        if (!$request->filled('cursor_created_at') || !$request->filled('cursor_id')) {
+
+            $tuotteet = Tuote::orderBy('Lisätty', 'DESC')
+                ->orderBy('Tuote_ID', 'DESC')
+                ->limit($limit)
+                ->get();
+
+        } else {
+
+            $cursorTime = $request->cursor_created_at;
+            $cursorId = $request->cursor_id;
+
+            $tuotteet = Tuote::where(function ($q) use ($cursorTime, $cursorId) {
+                $q->where('Lisätty', '<', $cursorTime)
+                    ->orWhere(function ($q2) use ($cursorTime, $cursorId) {
+                        $q2->where('Lisätty', '=', $cursorTime)
+                            ->where('Tuote_ID', '<', $cursorId);
+                    });
+            })
+                ->orderBy('Lisätty', 'DESC')
+                ->orderBy('Tuote_ID', 'DESC')
+                ->limit($limit)
+                ->get();
+        }
+
+        $last = $tuotteet->last();
+
+        return response()->json([
+            'data' => $tuotteet,
+            'next_cursor' => $last ? [
+                'cursor_created_at' => $last->Lisätty,
+                'cursor_id' => $last->Tuote_ID
+            ] : null
+        ]);
     }
 
 

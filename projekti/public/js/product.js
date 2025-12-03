@@ -37,7 +37,7 @@ const carousel = document.querySelector("#reviewCarousel");
 const nextBtn = document.querySelector(".carousel_btn.next");
 const prevBtn = document.querySelector(".carousel_btn.prev");
 
-const Kategoria = document.getElementById("kategory").dataset.kategoria;
+const Kategoria = document.getElementById("kategory").dataset.productKategoria
 
 let isExpanded = false;
 let quantity = 1;
@@ -119,7 +119,7 @@ addToCartBtn?.addEventListener('click', async () => {
 let currentIndex = 0;
 let recipes = [];
 let autoScrollInterval = null;
-let updateCard = () => {};
+let updateCard = () => { };
 
 // Auto-scroll functions
 function startAutoScroll() {
@@ -141,6 +141,7 @@ function stopAutoScroll() {
 async function fetchRecipes() {
     try {
         const response = await fetch(`/reseptit?Kategoria=${Kategoria}`);
+        console.log("kategoria:",Kategoria)
         if (!response.ok) throw new Error(`Virheellinen vastaus: ${response.status}`);
         const data = await response.json();
         renderRecipeCarousel(data);
@@ -149,7 +150,13 @@ async function fetchRecipes() {
     }
 }
 
+
 function renderRecipeCarousel(data) {
+    if (data.success !== true) {
+        recipeImg.style.backgroundImage = '';
+        titleEl.textContent = data.message || "reseptejä ei löytynyt aa";
+        return;
+    }
     recipes = data.data;
 
     updateCard = (index) => {

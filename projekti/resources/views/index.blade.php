@@ -8,8 +8,8 @@
             <h1>Order Fresh & Delicious Food Online</h1>
             <h2>"Order Anytime, Enjoy Fresh Meals Fast"</h2>
             <div class="fresh_menu_btn">
-                <button class="signin_btn"><a href="/kirjaudu">Sign in</a></button>
-                <button class="register_btn"><a href="/rekisteroidy">Register</a></button>
+                <a href="/products" class="register_btn index">Shop Now <i class="fa-solid fa-bag-shopping"></i></a>
+                <a href="/kirjaudu" class="signin_btn index">Sign in</a>
             </div>
         </div>
     </div>
@@ -27,7 +27,9 @@
                     FreshBite – where quality meets convenience.
                 </p>
                 <div class="about-buttons">
-                    <button class="btn-light">Shop Now</button>
+                    <button class="btn-light" onclick="window.location.href='/products'">
+                        Shop Now
+                    </button>
                     <button class="btn-dark">Learn More</button>
                 </div>
             </div>
@@ -56,7 +58,7 @@
                 </p>
 
                 <div class="mission-buttons">
-                    <button class="btn-light">Explore Products</button>
+                    <button class="btn-light"  onclick="window.location.href='/products'">Explore Products</button>
                     <button class="btn-dark">Read More</button>
                 </div>
             </div>
