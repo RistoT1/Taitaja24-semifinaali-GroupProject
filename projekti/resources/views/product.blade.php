@@ -23,6 +23,7 @@
                             <h3 class="products_details_price">{{ $tuote->Hinta  }}€</h3>
                             <div class="products_details_desc" id="text">
                                 {{$tuote->Kuvaus}}
+                                <div class="kategoria" id="kategory" data-product-kategoria="{{ $tuote->Kategoria }}">{{ $tuote->Kategoria }}</div>
                             </div>
                             <button class="toggle_btn">Show more</button>
                             <div class="products_details_quantity">
@@ -180,7 +181,7 @@
 
                                 <div class="recipe-card" id="recipeCard">
                                     <div class="recipe-img-container">
-                                        <div class="recipe-img"></div>
+                                        <div id="recipeImg" class="recipe-img"></div>
                                     </div>
                                 </div>
 
@@ -198,40 +199,13 @@
                                         <div class="tutorial-section selected" id="Ainesosat">
                                             <h3>AinesOsat</h3>
                                             <ul>
-                                                <li>400 g (7–8) Pirkka porkkanoita</li>
-                                                <li>2 Pirkka perunaa (punainen pussi)</li>
-                                                <li>1 iso sipuli</li>
-                                                <li>1 rkl öljyä</li>
-                                                <li>1/2 l vettä</li>
-                                                <li>1 kasvisliemikuutio</li>
-                                                <li>1 tl Pirkka rakuunaa</li>
-                                                <li>1/4 tl mustapippuria</li>
-                                                <li>1/2 dl kermaa</li>
+                                                
                                             </ul>
                                         </div>
                                         <div class="tutorial-section" id="Valmistus">
                                             <h3>Valmistusohjeet</h3>
                                             <ol>
-                                                <li>
-                                                    Paloittele kuoritut porkkanat ja perunat.
-                                                    Hienonna kuorittu sipuli.
-                                                    Kuullota sipulit öljyssä kattilassa.
-                                                    Lisää porkanat ja perunat. Sekoittele hetki.
-                                                    Kaada vesi kattilaan ja lisää liemikuutio.
-                                                    Keitä noin 20 minuuttia, kunnes kasvikset ovat pehmeitä.
-                                                </li>
-                                                <li>
-                                                    Kaada keitinvesi talteen toiseen astiaan.
-                                                    Soseuta kasvikset sauvasekoittimella tai sähkövatkaimella kattilassa.
-                                                    Lisää keitinlientä joukkoon niin paljon, että keitosta tulee sopivan
-                                                    sakeaa.
-                                                </li>
-                                                <li>
-                                                    Mausta rakuunalla ja mustapippurilla.
-                                                    Lisää halutessasi kermaa.
-                                                    Tarjoa porkkanasosekeitto höyryävän kuumana esimerkiksi
-                                                    karjalanpiirakoiden kanssa.
-                                                </li>
+                                               
                                             </ol>
                                         </div>
                                     </div>

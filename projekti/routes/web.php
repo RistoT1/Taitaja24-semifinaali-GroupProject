@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Middleware\TwoFactorMiddleware;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ReseptitController;
 
 Route::get('/test2', function () {
     return view('test2');
@@ -91,3 +92,5 @@ Route::post('/cart', [CartController::class, 'store']);
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/reseptit', [ReseptitController::class, 'index']);

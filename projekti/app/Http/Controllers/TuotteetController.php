@@ -22,7 +22,7 @@ class TuotteetController extends Controller
         }
 
         $tuotteet = Tuote::all();
-        return view('kirjaudu', compact('tuotteet'));
+        return view('//täytä', compact('tuotteet'));
     }
 
 
