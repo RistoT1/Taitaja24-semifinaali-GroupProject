@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="media.css">
 </head>
 <body>
     <header>
@@ -40,8 +42,10 @@
          <section class="products">
             <div class="container">
                 <div class="products_wrapper">
+                    <button class="filters_toggle">Filters &#9776;</button>
                     <div class="products_left">
-                        <h3>Categories</h3>
+                        <div class="categories_block">
+                        <h3 class="categories_title">Categories</h3>
                         <ul class="products_left_categories">
                             <li class="categories_item">
                                 <a href="#">Promotions and discount products</a>
@@ -752,6 +756,7 @@
                                 </ul>
                             </li>
                         </ul>
+                        </div>
                         <h3>Price</h3>
                         <div class="price_inputs">
                             <div class="price_input_box">
@@ -763,28 +768,9 @@
                                 <input type="number" id="maxPrice" placeholder="500">
                             </div>
                         </div>
-                        <h3>Manufacturer</h3>
-                        <ul class="manufacturer_list">
-                        <li>
-                        <label>
-                              <input type="checkbox">
-                              Brand A
-                              </label>
-                        </li>
-                        <li>
-                        <label>
-                            <input type="checkbox">
-                             Brand B
-                        </label>
-                        </label>
-                        </li>
-                        <li>
-                        <label>
-                            <input type="checkbox">
-                            Brand C
-                        </label>
-                         </li>
-                        </ul>
+                        <h3 id="manufacturer_title" class="toggle_title">Manufacturer</h3>
+                        <ul class="manufacturer_list" id="manufacturer_list"></ul>
+
                     </div>
                     <div class="products_right">
                         <div class="products_right_nav">
