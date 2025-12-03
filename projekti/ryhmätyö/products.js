@@ -1,36 +1,77 @@
+/* ---------------- SELECTORS ---------------- */
 
 const productGrid = document.querySelector("#productGrid")
 const searchInput = document.querySelector(".search_input")
 
-// Price inputs
 const minPriceInput = document.querySelector("#minPrice")
 const maxPriceInput = document.querySelector("#maxPrice")
 
-// Category list (left sidebar)
 const categoryList = document.querySelector(".products_left_categories")
+const manufacturerListContainer = document.querySelector("#manufacturer_list")
 
-// Manufacturer checkboxes
-const manufacturerList = document.querySelectorAll(".manufacturer_list input[type='checkbox']")
-
-// Sort buttons
 const sortButtons = document.querySelectorAll(".filter-buttons button")
+
+/* Burger menu */
+const toggleBtn = document.querySelector(".filters_toggle")
+const productsLeft = document.querySelector(".products_left")
+const catTitle = document.querySelector(".categories_title")
+
+/* ---------------- BURGER MENU ---------------- */
+
+toggleBtn.addEventListener("click", () => {
+    productsLeft.classList.toggle("active")
+})
+
+document.querySelectorAll(".categories_item > a").forEach(link => {
+    link.addEventListener("click", function (e) {
+        if (window.innerWidth <= 1024) {
+            e.preventDefault()
+            e.stopPropagation()
+            this.parentElement.classList.toggle("open")
+        }
+    })
+})
+
+document.addEventListener("click", (e) => {
+    if (!productsLeft.contains(e.target) && !toggleBtn.contains(e.target)) {
+        productsLeft.classList.remove("active")
+        document.querySelectorAll(".categories_item.open").forEach(item => item.classList.remove("open"))
+    }
+})
+
+if (catTitle) {
+    catTitle.addEventListener("click", (e) => {
+        e.stopPropagation()
+        catTitle.classList.toggle("active")
+        categoryList.classList.toggle("open")
+    })
+}
+
+/* ---------------- DATA ---------------- */
 
 let allProducts = []
 let filteredProducts = []
 
-// ---------------- API --------------------
+/* ---------------- API ---------------- */
+
 async function GetProducts() {
     try {
-        const response = await fetch("/api/tuotteet") 
-        const data = await response.json()
-        return data
-    } catch (error) {
-        console.error( error)
+        const response = await fetch("https://fakestoreapi.com/products")
+        return await response.json()
+    } catch {
         return []
     }
 }
 
-// ---------------- RENDER ---------------------
+// FakeStore API has no brands → extract unique category names as "brands"
+async function GetManufacturers() {
+    const products = await GetProducts()
+    const brand = [...new Set(products.map(p => p.brand))]
+    return brand
+}
+
+/* ---------------- RENDER ---------------- */
+
 function RenderProducts(arr) {
     productGrid.innerHTML = ""
 
@@ -41,67 +82,80 @@ function RenderProducts(arr) {
 
     const html = arr.map(p => `
         <div class="product_card" data-id="${p.id}">
-            <img src="${p.Kuva}" alt="${p.Nimi}">
-            <h4>${p.Nimi}</h4>
-            <p class="price">${p.Hinta} €</p>
-            <p class="brand">${p.Kategoria}</p>
+            <img src="${p.image}" alt="${p.title}">
+            <h4>${p.title}</h4>
+            <p class="price">${p.price} €</p>
+            <p class="brand">${p.category}</p>
         </div>
     `)
 
     productGrid.innerHTML = html.join("")
 
-    // Make product card clickable
     document.querySelectorAll(".product_card").forEach(card => {
         card.addEventListener("click", () => {
-            const id = card.dataset.id
-            window.location.href = `productdetails.html?id=${id}`
+            window.location.href = `productdetails.html?id=${card.dataset.id}`
         })
     })
 }
 
-// ---------------- FILTERS ---------------------
+function RenderManufacturers(arr) {
+    manufacturerListContainer.innerHTML = arr
+        .map(brand => `
+        <li>
+            <label>
+                <input type="checkbox" class="brand_checkbox" value="${brand}">
+                ${brand}
+            </label>
+        </li>
+    `)
+        .join("")
+
+    // Attach events
+    document.querySelectorAll(".brand_checkbox")
+        .forEach(ch => ch.addEventListener("change", ApplyFilters))
+}
+
+/* ---------------- FILTERS ---------------- */
+
 function ApplyFilters() {
     const searchValue = searchInput.value.toLowerCase()
-    const minPrice = Number(minPriceInput.value) || 0
-    const maxPrice = Number(maxPriceInput.value) || Infinity
+    const minP = Number(minPriceInput.value) || 0
+    const maxP = Number(maxPriceInput.value) || Infinity
 
-    // Active category from sidebar
-    const activeCategoryLink = categoryList.querySelector(".active-category")
-    const activeCategory = activeCategoryLink ? activeCategoryLink.textContent.trim().toLowerCase() : "all"
+    const activeCategory =
+        categoryList.querySelector(".active-category")?.textContent.trim().toLowerCase() || "all"
 
-    // Active manufacturers
-    const selectedBrands = [...manufacturerList]
-        .filter(c => c.checked)
-        .map(c => c.parentElement.textContent.trim())
+    const selectedBrands = [...document.querySelectorAll(".brand_checkbox:checked")]
+        .map(c => c.value.toLowerCase())
 
     filteredProducts = allProducts.filter(p => {
-        const matchCategory = p.category.toLowerCase().includes(activeCategory) || activeCategory === "all"
-        const matchSearch = p.title.toLowerCase().includes(searchValue)
-        const matchPrice = p.price >= minPrice && p.price <= maxPrice
-        const matchBrand = selectedBrands.length === 0 || selectedBrands.includes(p.brand)
+        const pBrand = p.category.toLowerCase()
 
-        return matchCategory && matchSearch && matchPrice && matchBrand
+        return (
+            (activeCategory === "all" || p.category.toLowerCase().includes(activeCategory)) &&
+            p.title.toLowerCase().includes(searchValue) &&
+            p.price >= minP &&
+            p.price <= maxP &&
+            (selectedBrands.length === 0 || selectedBrands.includes(pBrand))
+        )
     })
 
     RenderProducts(filteredProducts)
 }
 
-// ---------------- SORTING ---------------------
+/* ---------------- SORTING ---------------- */
+
 function SortProducts(type) {
-    if (type === "New") {
-        filteredProducts = [...filteredProducts].reverse()
-    } else if (type === "Price ascending") {
-        filteredProducts.sort((a, b) => a.price - b.price)
-    } else if (type === "Price descending") {
-        filteredProducts.sort((a, b) => b.price - a.price)
-    } else if (type === "Rating") {
-        filteredProducts.sort((a, b) => b.rating - a.rating)
-    }
+    if (type === "New") filteredProducts = [...filteredProducts].reverse()
+    if (type === "Price ascending") filteredProducts.sort((a, b) => a.price - b.price)
+    if (type === "Price descending") filteredProducts.sort((a, b) => b.price - a.price)
+    if (type === "Rating") filteredProducts.sort((a, b) => b.rating - a.rating)
 
     RenderProducts(filteredProducts)
 }
 
-// ---------------- CATEGORY CLICK ---------------------
+/* ---------------- EVENTS ---------------- */
+
 categoryList.addEventListener("click", (e) => {
     if (e.target.tagName === "A") {
         e.preventDefault()
@@ -111,17 +165,23 @@ categoryList.addEventListener("click", (e) => {
     }
 })
 
-// ---------------- EVENT LISTENERS ---------------------
 searchInput.addEventListener("input", ApplyFilters)
 minPriceInput.addEventListener("input", ApplyFilters)
 maxPriceInput.addEventListener("input", ApplyFilters)
-manufacturerList.forEach(ch => ch.addEventListener("change", ApplyFilters))
-sortButtons.forEach(btn => btn.addEventListener("click", () => SortProducts(btn.textContent.trim())))
 
-// ---------------- INIT ---------------------
+sortButtons.forEach(btn =>
+    btn.addEventListener("click", () => SortProducts(btn.textContent.trim()))
+)
+
+/* ---------------- INIT ---------------- */
+
 async function Init() {
     allProducts = await GetProducts()
     filteredProducts = [...allProducts]
+
+    const manufacturers = await GetManufacturers()
+    RenderManufacturers(manufacturers)
+
     RenderProducts(allProducts)
 }
 
