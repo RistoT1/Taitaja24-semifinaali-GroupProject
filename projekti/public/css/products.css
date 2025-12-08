@@ -25,6 +25,9 @@
     padding: 15px 0;
 }
 
+.categories_block{
+    margin-bottom: 5rem
+}
 
 .products_left > h3,
 .categories_title {
@@ -178,6 +181,11 @@
     outline: none;
     box-shadow: 0 0 0 2px rgba(74,144,226,0.25);
 }
+.products_right{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 
 /* Products right section (search & filters) */
 .products_right_nav {
@@ -225,6 +233,7 @@
 .product-grid {
     padding: 35px 0;
     display: grid;
+    min-height: 40vh;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
 }
@@ -272,6 +281,24 @@
 .product_card .brand {
     font-size: 13px;
     opacity: 0.7;
+}
+
+.loadmore-button-container{
+    display: flex;
+    justify-content: center;
+}
+
+.loadmore-button{
+    width: 30%;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    text-decoration: underline;
+    color: rgb(0, 0, 0);
+}
+
+.loadmore-button:hover{
+   cursor: pointer;
 }
 
 /* News section */

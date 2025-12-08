@@ -23,6 +23,15 @@ class TuotteetController extends Controller
             return view('product', compact('tuotteet'));
         }
 
+        if ($request->filled('Kategoria')) {
+            $tuotteet = Tuote::where('Kategoria', $request->Kategoria)->get();
+
+            // If no product found, return a different view
+            if (!$tuotteet->isEmpty()) {
+                return response()->json(['data' => $tuotteet,]);
+            }
+        }
+
         $limit = 20;
 
         // No cursor → first page

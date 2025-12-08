@@ -97,4 +97,4 @@ Route::post('/2fa', [AuthController::class, 'verifyTwoFactor'])
     ->middleware(TwoFactorMiddleware::class);
 
 // Cart (protected)
-Route::post('/cart', [CartController::class, 'store'])->middleware(['auth', PreventBackHistory::class]);
+Route::post('/cart', [CartController::class, 'store'])->middleware([PreventBackHistory::class]);

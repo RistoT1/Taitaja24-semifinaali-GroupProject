@@ -63,18 +63,19 @@ function RenderCategories(categories) {
             cursor = null
 
             // fetch products for this category
-            await FetchProducts({ category: link.textContent })
+            await FetchProducts({ Kategoria: link.textContent })
         })
     })
 }
 
 /* ---------------- FETCH PRODUCTS ---------------- */
 
-async function FetchProducts({ category = null, cursorCreatedAt = null, cursorId = null } = {}) {
+async function FetchProducts({ Kategoria = null, cursorCreatedAt = null, cursorId = null } = {}) {
     let url = "/api/products"
     const params = []
 
-    if (category) params.push(`category=${encodeURIComponent(category)}`)
+    console.log(Kategoria)
+    if (Kategoria) params.push(`Kategoria=${encodeURIComponent(Kategoria)}`)
     if (cursorCreatedAt && cursorId) {
         params.push(`cursor_created_at=${encodeURIComponent(cursorCreatedAt)}`)
         params.push(`cursor_id=${encodeURIComponent(cursorId)}`)

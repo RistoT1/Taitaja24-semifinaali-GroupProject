@@ -95,6 +95,11 @@ ul {
     justify-content: center;
     width: 100%;
 }
+.alert-info
+{
+    width: 100%;
+    display: none;
+}
 
 .signin_btn {
     display: block;
@@ -890,15 +895,36 @@ ul {
     display: none;
 }
 
-.recipe-tutorial-toggle-container {
+.toggle-group {
     display: flex;
-    flex-direction: row;
+    gap: 0;
+    display: flex;
     justify-content: center;
-    margin: 1rem;
+    gap: 2rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-tutorial-toggle-btn {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.recipe-tutorial-toggle-btn:hover {
+    background: #f5f5f5;
 }
 
 .recipe-tutorial-toggle-btn.toggled {
-    background-color: #2C2C2C;
+    background: #282727;
+    color: white;
+    border-color: #282727;
 }
 
 .recipe.expanded {

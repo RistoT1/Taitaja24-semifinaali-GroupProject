@@ -10,7 +10,9 @@
                     @foreach($tuotteet as $tuote)
                         <div class="products_details_left">
                             <div class="product-details-img">
-                                <img src="{{ asset('images/' . $tuote->Kuva) }}.jpg" alt="photo" loading="lazy">
+                                <img src="{{ asset('images/' . $tuote->Kuva) }}.jpg" alt="photo"
+                                    onerror="this.onerror=null;this.src='{{ asset('images/placeholder.jpg') }}';"
+                                    loading="lazy">
                             </div>
                             <button class="favorites_btn">
                                 <span class="heart">❤</span>
@@ -23,7 +25,8 @@
                             <h3 class="products_details_price">{{ $tuote->Hinta  }}€</h3>
                             <div class="products_details_desc" id="text">
                                 {{$tuote->Kuvaus}}
-                                <div class="kategoria" id="kategory" data-product-kategoria="{{ $tuote->Kategoria }}">{{ $tuote->Kategoria }}</div>
+                                <div class="kategoria" id="kategory" data-product-kategoria="{{ $tuote->Kategoria }}">
+                                    {{ $tuote->Kategoria }}</div>
                             </div>
                             <button class="toggle_btn">Show more</button>
                             <div class="products_details_quantity">
@@ -190,22 +193,24 @@
                                 <div class="recipe">
                                     <h2>Porkkana keitto</h2>
                                     <div class="recipe-tutorial-toggle-container">
-                                        <button class="recipe-tutorial-toggle-btn toggled"
-                                            data-target="Ainesosat">AinesOsat</button>
-                                        <button class="recipe-tutorial-toggle-btn"
-                                            data-target="Valmistus">Valmistus</button>
+                                        <div class="toggle-group">
+                                            <button class="recipe-tutorial-toggle-btn toggled"
+                                                data-target="Ainesosat">Ainesosat</button>
+                                            <button class="recipe-tutorial-toggle-btn"
+                                                data-target="Valmistus">Valmistus</button>
+                                        </div>
                                     </div>
                                     <div class="recipe-tutorial">
                                         <div class="tutorial-section selected" id="Ainesosat">
-                                            <h3>AinesOsat</h3>
+                                            <h3>Ainesosat</h3>
                                             <ul>
-                                                
+
                                             </ul>
                                         </div>
                                         <div class="tutorial-section" id="Valmistus">
                                             <h3>Valmistusohjeet</h3>
                                             <ol>
-                                               
+
                                             </ol>
                                         </div>
                                     </div>
