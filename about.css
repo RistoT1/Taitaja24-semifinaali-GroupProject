@@ -1,0 +1,319 @@
+/*Arvomme*/
+.principles {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .principles h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    font-weight: 600;
+    color: #2f3a2f;
+  }
+
+  .principles-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+  }
+
+  .principle-item {
+    background: #fafaf7;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+  }
+
+  .principle-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  }
+
+  .icon {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+  }
+
+  .principle-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #3f4c3f;
+  }
+
+  .principle-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #4e594e;
+  }
+
+  /*Alku*/
+.origin-section {
+  padding: 90px 0;
+}
+
+.origin-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.origin-title {
+  font-size: 44px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.origin-content p {
+  font-size: 18px;
+  line-height: 1.75;
+  color: #3a3a3a;
+  margin-bottom: 25px;
+}
+
+.origin-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.origin-card {
+  background: #ffffff;
+  padding: 22px 26px;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  width: 90%;
+}
+
+.origin-card h4 {
+  margin-bottom: 6px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.origin-card p {
+  font-size: 15px;
+  color: #505050;
+}
+
+
+.origin-photo {
+  width: 100%;
+  height: 460px;
+  background-image: url(/images/farma.jpg); 
+  background-size: cover;
+  background-position: center;
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+
+@media (max-width: 1000px) {
+  .origin-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .origin-photo {
+    height: 330px;
+  }
+}
+
+
+/*Location*/
+.lopetus {
+      padding: 150px 0px;
+      
+      font-family: 'Arial', sans-serif;
+    }
+
+    .lopetus .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 80px;
+      max-width: 1600px;
+      
+    }
+
+    .lopetus .text {
+      flex: 1;
+      
+    }
+
+    .lopetus h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    .lopetus p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #ff6b81;
+    }
+
+    .image-wrapper {
+      position: relative;
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      display: block;
+    }
+
+    .info-box {
+      position: absolute;
+      background: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-size: 0.9rem;
+      max-width: 220px;
+      line-height: 1.4;
+    }
+
+    .info-box.top { top: 10%; left: 5%; }
+    .info-box.middle { top: 40%; right: 10%; }
+    .info-box.bottom { bottom: 10%; left: 15%; }
+
+    @media (max-width: 900px) {
+      .lopetus .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .info-box {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin: 10px 0;
+      }
+    }
+  /* === MEDIA QUERIES === */
+
+/* Large screens <=1200px */
+@media (max-width: 1200px) {
+    .principles-grid {
+        gap: 30px;
+    }
+    .origin-inner {
+        gap: 60px;
+    }
+    .lopetus .container {
+        gap: 60px;
+    }
+}
+
+/* Medium screens <=900px */
+@media (max-width: 900px) {
+    /* Principles */
+    .principles-grid {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .principle-item {
+        max-width: 100%;
+    }
+
+    /* Origin */
+    .origin-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .origin-photo {
+        height: 300px;
+    }
+   }
+
+    /* Lopetus Section — адаптация под маленькие экраны */
+@media (max-width: 900px) {
+  .lopetus .container {
+    flex-direction: column; /* текст и фото идут в столбик */
+    align-items: center;
+  }
+
+  .lopetus .text,
+  .image-wrapper {
+    flex: 1 1 100%; /* занимают всю ширину */
+    min-width: auto;
+  }
+
+  .image-wrapper {
+    margin-top: 20px; /* небольшой отступ между текстом и фото */
+  }
+
+  /* Перенос инфо-боксов под фото */
+  .info-box {
+    position: relative; /* чтобы не было абсолютного позиционирования */
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 10px 0;
+    max-width: 95%;
+  }
+}
+
+/* Для ещё более маленьких экранов <=375px */
+/* Для маленьких экранов <= 375px */
+/* Lopetus section — мобильная версия */
+@media (max-width: 375px) {
+  .lopetus .container {
+    flex-direction: column;      /* все элементы в столбик */
+    align-items: center;
+    gap: 20px;
+  }
+
+  .lopetus .text {
+    width: 100%;                 /* текст занимает всю ширину */
+    text-align: center;
+  }
+
+  .image-wrapper {
+    width: 100%;                 /* фото занимает всю ширину */
+    min-width: auto;
+    margin-top: 10px;
+    position: relative;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  /* Переводим инфо-боксы под фото */
+  .info-box {
+    position: relative;          /* больше не абсолютные */
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 8px 0;
+    width: 95%;                  /* адаптивная ширина */
+    max-width: 300px;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    padding: 8px 10px;
+  }
+}
+
+
