@@ -62,6 +62,7 @@ class CartController extends Controller
                 'success' => true,
                 'TuoteID' => $Tuote_ID,
                 'quantity' => $quantity,
+                'cartCount' => count($cart),
                 'cart' => $cart, // optional: return full cart
             ]
         ]);

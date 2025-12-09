@@ -1,0 +1,309 @@
+/* Reset list styles */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    max-width: 1136px;
+    margin: 0 auto;
+}
+
+/* Header Menu */
+.header_menu {
+    padding: 5px 0px;
+}
+
+.header_menu_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_menu_logo {
+    display: block;
+    background-color: transparent;
+    border: none;
+    width: 85px;
+    height: 85px;
+}
+
+.header_menu_right {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.header_menu_list {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+}
+
+.header_menu_list > li > a {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    color: #1E1E1E;
+    text-decoration: none;
+}
+
+.header_menu_btn {
+    display: flex;
+    gap: 12px;
+}
+
+/* Cart */
+.cart_nav {
+    position: relative;
+}
+
+.cart_btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.cart_btn img {
+    width: 32px;
+    height: 32px;
+}
+
+.cart_count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #2c2c2c;
+    color: #FFFFFF;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Buttons */
+.signin_btn {
+    display: block;
+    width: 83px;
+    height: 32px;
+    background: #E3E3E3;
+    border: 1px solid #767676;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.signin_btn > a {
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #1E1E1E;
+    transition: 0.3s;
+    display: flex; /* Added for centering text */
+    justify-content: center; /* Added for centering text */
+    align-items: center; /* Added for centering text */
+    height: 100%; /* Added for centering text */
+}
+
+.signin_btn:hover {
+    background: #2C2C2C;
+}
+
+.signin_btn:hover > a {
+    color: #F5F5F5;
+}
+
+.register_btn {
+    display: block;
+    width: 83px;
+    height: 32px;
+    background: #2C2C2C;
+    border: 1px solid #2C2C2C;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.register_btn > a {
+    text-decoration: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #F5F5F5;
+    transition: 0.3s;
+    display: flex; /* Added for centering text */
+    justify-content: center; /* Added for centering text */
+    align-items: center; /* Added for centering text */
+    height: 100%; /* Added for centering text */
+}
+
+.register_btn:hover {
+    background: #E3E3E3;
+}
+
+.register_btn:hover > a {
+    color: #1E1E1E;
+}
+
+/* Burger Menu Button */
+.burger_menu {
+    display: none; /* hidden on desktop */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 25px;
+    z-index: 30;
+}
+
+.burger_menu span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: #1E1E1E;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+/* Animate burger into X */
+.burger_menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger_menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger_menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Burger Menu Overlay */
+.burger_menu_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100vh;
+    background-color: #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    overflow: hidden;
+    transition: width 0.5s ease-in-out;
+    z-index: 25;
+}
+
+.burger_menu_bg.active_burger {
+    width: 50%;
+    overflow: visible;
+}
+
+.burger_menu_list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 0;
+}
+
+.burger_menu_list li a,
+.burger_menu_list li span,
+.burger_menu_list li button { /* Added button for logout styling */
+    text-decoration: none;
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: #1E1E1E;
+    opacity: 0.8;
+    text-align: center;
+    background: none; /* Reset button background */
+    border: none; /* Reset button border */
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    /* Show burger menu and hide desktop menu on smaller screens */
+    .burger_menu {
+        display: flex;
+    }
+
+    .header_menu_list,
+    .header_menu_btn {
+        display: none;
+    }
+}
+
+/* Mobile responsive adjustments from original code (kept for completeness) */
+@media (max-width: 768px) and (min-width: 481px) {
+    .header_menu_wrapper {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .header_menu_list {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header_menu_wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .header_menu_logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .header_menu_right {
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+    }
+
+    .header_menu_list {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .header_menu_btn {
+        flex-direction: row;
+        width: 100%;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .signin_btn,
+    .register_btn {
+        width: 100%;
+        max-width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

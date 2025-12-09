@@ -15,7 +15,10 @@
                         <p><strong>Email:</strong> {{ $user->Sähköposti }}</p>
                         <p><strong>Phone:</strong> {{ $user->Puhelin }}</p>
                     </div>
-                    <a href="{{ route('logout') }}" class="logout-btn">Logout</a>
+                    <form action="logout" method="POST" style="display:inline;">
+                        @csrf
+                        <button type="submit" class="logout-btn">Logout</button>
+                    </form>
                 </div>
 
                 <!-- Right Side: Change Information Form -->

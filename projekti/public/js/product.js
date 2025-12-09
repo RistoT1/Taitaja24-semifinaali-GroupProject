@@ -99,12 +99,22 @@ addToCartBtn?.addEventListener('click', async () => {
 
         const data = await response.json();
         if (data.data?.success) {
+            // Update notification (you already have this)
             notification.innerHTML = "<p>Tuote lisätty onnistuneesti</p>";
             notification.style.opacity = 0;
             setTimeout(() => notification.style.transition = "opacity 0.5s ease", 50);
             setTimeout(() => notification.style.opacity = 1, 100);
             setTimeout(() => notification.style.opacity = 0, 3100);
+
+            // --- Update cart count in header ---
+            const cartCountEl = document.getElementById("cartCount");
+            if (cartCountEl) {
+                const newCount = data.data?.cartCount ?? 0; // Assuming your server returns updated cart count
+                cartCountEl.textContent = newCount;
+                cartCountEl.style.display = newCount > 0 ? "flex" : "none";
+            }
         }
+
     } catch (err) {
         console.error(err);
     } finally {
@@ -141,7 +151,7 @@ function stopAutoScroll() {
 async function fetchRecipes() {
     try {
         const response = await fetch(`/reseptit?Kategoria=${Kategoria}`);
-        console.log("kategoria:",Kategoria)
+        console.log("kategoria:", Kategoria)
         if (!response.ok) throw new Error(`Virheellinen vastaus: ${response.status}`);
         const data = await response.json();
         renderRecipeCarousel(data);

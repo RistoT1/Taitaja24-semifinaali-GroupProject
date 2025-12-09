@@ -54,6 +54,7 @@
     padding: 12px 24px;
     background: #e74c3c;
     color: white;
+    border: none;
     text-decoration: none;
     border-radius: 6px;
     transition: background 0.3s ease;
@@ -62,7 +63,8 @@
 }
 
 .logout-btn:hover {
-    background: #c0392b;
+    background: #e8685a;
+    cursor: pointer;
 }
 
 /* Right Side - Change Form */

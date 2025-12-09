@@ -9,7 +9,11 @@
             <h2>"Order Anytime, Enjoy Fresh Meals Fast"</h2>
             <div class="fresh_menu_btn">
                 <a href="/products" class="register_btn index">Shop Now <i class="fa-solid fa-bag-shopping"></i></a>
-                <a href="/kirjaudu" class="signin_btn index">Sign in</a>
+                @if (auth()->user())
+                    <a href="/me" class="signin_btn index">Profiili</a>
+                @else
+                    <a href="/kirjaudu" class="signin_btn index">Sign in</a>
+                @endif
             </div>
         </div>
     </div>
@@ -58,8 +62,8 @@
                 </p>
 
                 <div class="mission-buttons">
-                    <button class="btn-light"  onclick="window.location.href='/products'">Explore Products</button>
-                    <button class="btn-dark">Read More</button>
+                    <button class="btn-light" onclick="window.location.href='/products'">Explore Products</button>
+                    <button class="btn-dark" onclick="window.location.href='/about'">Read More</button>
                 </div>
             </div>
         </div>
