@@ -1,0 +1,215 @@
+/* Ostoskori (Shopping Cart) Styles */
+main {
+    background-color: #f9f9f9;
+    min-height: 80vh;
+}
+.osto-title {
+    text-align: center;
+    width: 100%;
+    margin: 40px 0;
+    font-size: 32px;
+}
+
+.osto-container {
+    display: flex;
+    gap: 600px; 
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.prod-table {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+    margin-left: 75px;
+}
+
+.one-row {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.item-img {
+    width: 130px;
+    border-right: 1px solid #e0e0e0;
+    padding-right: 20px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.one-row > * {
+    position: relative;
+    padding-right: 20px;
+}
+
+.one-row > *:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 120px;
+    background-color: #d8d3d3;
+}
+
+/* Form */
+.form-container {
+    border: 1px solid #151616; 
+    padding: 30px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.form-container input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.form-container button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #acb2b9;
+}
+
+.signin-prompt {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: end;
+    align-items: center;
+}
+
+.order-table {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.item-controls {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+}
+/* Responsive Styles for Ostoskori */
+
+@media (max-width: 1024px) {
+    .osto-container {
+        gap: 150px;
+    }
+
+    .one-row {
+        gap: 30px;
+    }
+
+    .item-img {
+        width: 100px;
+    }
+
+    .form-container {
+        width: 260px;
+    }
+
+    .osto-title {
+        font-size: 28px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .osto-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .prod-table {
+        margin-left: 0;
+        width: 100%;
+        max-width: 700px;
+    }
+
+    .one-row {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .one-row > *:not(:last-child)::after {
+        display: none;
+    }
+
+    .item-img {
+        width: 90px;
+        padding-right: 0;
+        border-right: none;
+    }
+
+    .form-container {
+        width: 100%;
+        max-width: 330px;
+    }
+
+    .osto-title {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .osto-container {
+        gap: 30px;
+    }
+
+    .one-row {
+        gap: 15px;
+    }
+
+    .item-img {
+        width: 70px;
+    }
+
+    .item-title {
+        font-size: 16px;
+    }
+
+    .item-desc {
+        font-size: 14px;
+    }
+
+    .form-container input,
+    .form-container button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .osto-title {
+        font-size: 22px;
+    }
+}

@@ -1,29 +1,52 @@
-<footer>
-    <div class="line"></div>
-    <div class="container">
-        <div class="footer_wrapper">
-            <div class="footer_list">
-                <h3>Tekijät</h3>
-                <div class="footer_list_items">
-                    <a href="#">Risto <img src="{{ asset('images/Github.png') }}" alt="logo"></a>
-                    <a href="#">Danyil <img src="{{ asset('images/Github.png') }}" alt="logo"></a>
-                    <a href="#">Daria <img src="{{ asset('images/Github.png') }}" alt="logo"></a>
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-left">
+            <div class="footer-logo">
+                <span>FreshBite</span>
+            </div>
+            <p class="footer-credit">Fresh food for wellness-minded</p>
+            <div class="newsletter">
+                <label for="email">Enter your email to get exclusive offers from us</label>
+                <div class="newsletter-form">
+                    <input type="email" id="email" placeholder="Enter your email here">
+                    <button>Join Now</button>
                 </div>
             </div>
-            <div class="footer_list">
-                <h3>Linkit</h3>
-                <div class="footer_list_items">
-                    <a href="#">Tuotteet</a>
-                    <a href="#">Ostoskori</a>
-                    <a href="#">Meistä</a>
-                </div>
-            </div>
-            <div class="footer_info">
-                <h3>Tietoa</h3>
-                <p>Kouluprojekti joka on tehty redbullilla ja päiväunilla ja rukoillen, että deadlinet eivät
-                    paukkuisi. Hajottaa mut kyllä tästä selvittiin.</p>
-            </div>
-            <img class="school_logo" src="{{ asset('images/Savon_koulutuskuntayhtyma_logo.png') }}" alt="school_logo">
         </div>
+
+
+        <div class="footer-column">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#">Products</a></li>
+
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </div>
+
+
+        <div class="footer-column">
+            <h3>Features</h3>
+            <ul>
+
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+
+
+        <div class="footer-column">
+            <h3>Contact</h3>
+            <ul>
+                <li><a href="https://github.com/DariaVel04">Daria <img src="./images/Icon.png" alt="github"></a>
+                </li>
+                <li><a href="https://github.com/RistoT1">Risto <img src="./images/Icon.png" alt="github"></a></li>
+                <li><a href="https://github.com/DanyilVel01">Danyil <img src="./images/Icon.png" alt="github"></a>
+                </li>
+
+            </ul>
+        </div>
+
     </div>
 </footer>

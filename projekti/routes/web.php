@@ -40,7 +40,7 @@ Route::get('/reseptit', [ReseptitController::class, 'index'])->middleware(Preven
 Route::get('/', function () {return view('index');})->middleware(PreventBackHistory::class);;
 Route::get('/products', function () { return view('products'); })->middleware(PreventBackHistory::class);
 Route::get('/about', function () { return view('about'); })->middleware(PreventBackHistory::class);
-
+Route::get('/cart', [CartController::class, 'index'])->middleware(PreventBackHistory::class);;
 // Test login route
 Route::get('/test-auth', function () {
     $user = \App\Models\User::find(21); // Use the user you just created
@@ -97,4 +97,7 @@ Route::post('/2fa', [AuthController::class, 'verifyTwoFactor'])
     ->middleware(TwoFactorMiddleware::class);
 
 // Cart (protected)
-Route::post('/cart', [CartController::class, 'store'])->middleware([PreventBackHistory::class]);
+Route::post('/cart', [CartController::class, 'storeSession'])->middleware([PreventBackHistory::class]);
+Route::post('/cart/remove-item', [CartController::class, 'remove'])->middleware([PreventBackHistory::class]);
+Route::post('/cart/checkout', [CartController::class, 'store'])->middleware([PreventBackHistory::class]);
+Route::post('/cart/update-item', [CartController::class, 'update'])->middleware([PreventBackHistory::class]);
