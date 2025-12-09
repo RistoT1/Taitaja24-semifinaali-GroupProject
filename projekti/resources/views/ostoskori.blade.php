@@ -66,6 +66,32 @@
                 }, 300); // wait 300ms after last click
             }
 
+            if(orderForm) {
+                orderForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    fetch('/cart/checkout', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.data && data.data.redirect_url) {
+                            window.location.href = data.data.redirect_url;
+                        } else {
+                            alert("Tilaus epäonnistui. Yritä uudelleen.");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error during checkout:", error);
+                        alert("Tilaus epäonnistui. Yritä uudelleen.");
+                    });
+                });
+            }
+
             async function updateServer(itemId, quantity) {
                 try {
                     const response = await fetch(`/cart/update-item`, {

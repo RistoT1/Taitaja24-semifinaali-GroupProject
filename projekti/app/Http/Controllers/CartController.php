@@ -121,11 +121,13 @@ class CartController extends Controller
         // Clear cart after saving
         session()->forget('cart');
 
+        session()->flash('order_data', [
+            'order_id' => $tilaus->Tilaus_ID,
+            'message' => 'Tilaus onnistui!'
+        ]);
         return response()->json([
             'data' => [
-                'success' => true,
-                'message' => 'Order created',
-                'Tilaus' => $tilaus,
+                'redirect_url' => route('thankyou'),
             ]
         ]);
     }

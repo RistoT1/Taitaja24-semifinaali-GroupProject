@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ThankyouController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TuotteetController;
 use App\Http\Controllers\AuthController;
@@ -35,12 +36,21 @@ Route::get('/rekisteroidy', function () {
 });
 Route::post('/rekisteroidy', [AuthController::class, 'register']);
 
-Route::get('/product', [TuotteetController::class, 'index'])->middleware(PreventBackHistory::class);;
-Route::get('/reseptit', [ReseptitController::class, 'index'])->middleware(PreventBackHistory::class);;
-Route::get('/', function () {return view('index');})->middleware(PreventBackHistory::class);;
-Route::get('/products', function () { return view('products'); })->middleware(PreventBackHistory::class);
-Route::get('/about', function () { return view('about'); })->middleware(PreventBackHistory::class);
-Route::get('/cart', [CartController::class, 'index'])->middleware(PreventBackHistory::class);;
+Route::get('/product', [TuotteetController::class, 'index'])->middleware(PreventBackHistory::class);
+;
+Route::get('/reseptit', [ReseptitController::class, 'index'])->middleware(PreventBackHistory::class);
+;
+Route::get('/', function () {
+    return view('index');
+})->middleware(PreventBackHistory::class)->name('index');
+Route::get('/products', function () {
+    return view('products');
+})->middleware(PreventBackHistory::class);
+Route::get('/about', function () {
+    return view('about');
+})->middleware(PreventBackHistory::class);
+Route::get('/cart', [CartController::class, 'index'])->middleware(PreventBackHistory::class);
+;
 // Test login route
 Route::get('/test-auth', function () {
     $user = \App\Models\User::find(21); // Use the user you just created
@@ -101,3 +111,4 @@ Route::post('/cart', [CartController::class, 'storeSession'])->middleware([Preve
 Route::post('/cart/remove-item', [CartController::class, 'remove'])->middleware([PreventBackHistory::class]);
 Route::post('/cart/checkout', [CartController::class, 'store'])->middleware([PreventBackHistory::class]);
 Route::post('/cart/update-item', [CartController::class, 'update'])->middleware([PreventBackHistory::class]);
+Route::get('/thankyou', [ThankyouController::class, 'index'])->name('thankyou');
