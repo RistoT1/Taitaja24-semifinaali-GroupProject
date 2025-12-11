@@ -13,7 +13,7 @@ use App\Http\Middleware\PreventBackHistory;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ReseptitController;
 use App\Http\Controllers\EmailChangeController;
-
+use App\Http\Controllers\PasswordController;
 /*
 |--------------------------------------------------------------------------
 | Public Routes
@@ -119,7 +119,7 @@ Route::get('/2fa', function () {
 Route::post('/2fa', [AuthController::class, 'verifyTwoFactor'])
     ->middleware(TwoFactorMiddleware::class);
 
-Route::get('/email/change-request', [AuthController::class, 'sendEmailChange'])->middleware(['auth', PreventBackHistory::class])->name('email.change.request');
+Route::post('/email/change-request', [AuthController::class, 'sendEmailChange'])->middleware(['auth', PreventBackHistory::class])->name('email.change.request');
 
 Route::get('/email/change/{token}', [EmailChangeController::class, 'showChangeForm'])
     ->name('email.change');
@@ -132,12 +132,28 @@ Route::post('/cart', [CartController::class, 'storeSession'])->middleware([Preve
 Route::post('/cart/remove-item', [CartController::class, 'remove'])->middleware([PreventBackHistory::class]);
 Route::post('/cart/checkout', [CartController::class, 'store'])->middleware([PreventBackHistory::class]);
 Route::post('/cart/update-item', [CartController::class, 'update'])->middleware([PreventBackHistory::class]);
+
 Route::get('/thankyou', [ThankyouController::class, 'index'])->name('thankyou');
+
 Route::get('/contacts', function () {
     return view('contact');
 })->middleware(PreventBackHistory::class)->name('contacts');
 
+// Send reset link
+Route::post('/password/custom-reset', [PasswordController::class, 'sendResetLink'])
+    ->middleware(PreventBackHistory::class)
+    ->name('password.reset.request');
 
-Route::fallback(function () {
+
+// Show reset form
+Route::get('/password/show/reset/{token}', [PasswordController::class, 'showResetForm'])->middleware(PreventBackHistory::class)
+    ->name('password.show.reset');
+
+// Handle new password
+Route::post('/password/update', [PasswordController::class, 'updatePassword'])->middleware(PreventBackHistory::class)
+    ->name('password.update');
+
+/*Route::fallback(function () {
     return redirect()->route('index');
 });
+*/

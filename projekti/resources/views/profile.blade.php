@@ -54,7 +54,13 @@
                                 <span class="display-value">{{ $user->Sähköposti }}</span>
                                 <span class="display-value"> varmistettu: {{ $user->email_verified_at}}</span>
                             </p>
-                            <a href="/email/change-request">Lähetä nollaus</a>
+                            <form action="{{ route('email.change.request') }}" method="POST" style="display:inline;">
+                                @csrf
+                                <button type="submit"
+                                    style="background:none;border:none;color:#007bff;cursor:pointer;padding:0;">
+                                    Lähetä nollaus
+                                </button>
+                            </form>
                         </div>
 
                         <div class="info-secure-item" data-field="Sähköposti">
@@ -62,7 +68,15 @@
                                 <strong>Salasana:</strong>
                                 <span class="display-value">••••••••••</span>
                             </p>
-                            <a href="">Lähetä nollaus</a>
+                            <form action="{{ route('password.reset.request') }}" method="POST" style="display:inline;">
+                                @csrf
+                                <button type="submit"
+                                    style="background:none;border:none;color:#007bff;cursor:pointer;padding:0;">
+                                    Lähetä nollaus
+                                </button>
+                            </form>
+
+
                         </div>
                     </div>
                 </div>
