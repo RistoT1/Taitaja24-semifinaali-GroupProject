@@ -14,6 +14,12 @@
 
                     <div class="user-info">
                         <h2>Tiedot:</h2>
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
 
                         <!-- NAME -->
                         <div class="info-item" data-field="Nimi">
@@ -48,7 +54,7 @@
                                 <span class="display-value">{{ $user->Sähköposti }}</span>
                                 <span class="display-value"> varmistettu: {{ $user->email_verified_at}}</span>
                             </p>
-                            <a href="">Lähetä nollaus</a>
+                            <a href="/email/change-request">Lähetä nollaus</a>
                         </div>
 
                         <div class="info-secure-item" data-field="Sähköposti">
@@ -78,7 +84,7 @@
             const saveChanges = document.querySelector(".save-changes");
             saveChanges.addEventListener("click", async () => {
                 console.log("Saving changes:", hasChanges);
-                
+
                 const response = await fetch('/me/update', {
                     method: 'POST',
                     headers: {
@@ -88,7 +94,7 @@
                     body: JSON.stringify(hasChanges)
                 });
 
-                if(response.ok) {
+                if (response.ok) {
                     alert("Changes saved successfully!");
                     hasChanges = {};
                     saveChanges.style.display = "none";

@@ -12,6 +12,7 @@ use App\Http\Middleware\TwoFactorMiddleware;
 use App\Http\Middleware\PreventBackHistory;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ReseptitController;
+use App\Http\Controllers\EmailChangeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +97,10 @@ Route::get('/email/reset', function () {
     return view('auth.verify-email');
 })->middleware(['auth', PreventBackHistory::class])->name('verification.notice');
 
+Route::get('/email/verify/sent', function () {
+    return view('auth.verification-sent');
+})->middleware(['auth', PreventBackHistory::class])->name('verification.sent');
+
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
     return redirect('/me')->with('verified', true);
@@ -114,6 +119,14 @@ Route::get('/2fa', function () {
 Route::post('/2fa', [AuthController::class, 'verifyTwoFactor'])
     ->middleware(TwoFactorMiddleware::class);
 
+Route::get('/email/change-request', [AuthController::class, 'sendEmailChange'])->middleware(['auth', PreventBackHistory::class])->name('email.change.request');
+
+Route::get('/email/change/{token}', [EmailChangeController::class, 'showChangeForm'])
+    ->name('email.change');
+
+Route::post('/email/change', [EmailChangeController::class, 'updateEmail'])
+    ->name('email.update');
+
 // Cart (protected)
 Route::post('/cart', [CartController::class, 'storeSession'])->middleware([PreventBackHistory::class]);
 Route::post('/cart/remove-item', [CartController::class, 'remove'])->middleware([PreventBackHistory::class]);
@@ -123,3 +136,8 @@ Route::get('/thankyou', [ThankyouController::class, 'index'])->name('thankyou');
 Route::get('/contacts', function () {
     return view('contact');
 })->middleware(PreventBackHistory::class)->name('contacts');
+
+
+Route::fallback(function () {
+    return redirect()->route('index');
+});

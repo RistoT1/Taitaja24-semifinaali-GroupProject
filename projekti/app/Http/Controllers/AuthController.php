@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Log;
 use App\Models\User;
+use App\Notifications\EmailChange;
 
 
 class AuthController extends Controller
@@ -97,6 +98,22 @@ class AuthController extends Controller
             'sähköposti' => 'Virheelliset tiedot',
         ]);
     }
+
+    public function sendEmailChange()
+    {
+        // Get the currently authenticated user
+        $user = Auth::user();
+
+        // Check if a user is logged in (though the 'auth' middleware should prevent null)
+        if (!$user) {
+            // Handle error, though the 'auth' middleware should prevent this
+            return back()->withErrors('You must be logged in to change your email.');
+        }
+
+        $user->notify(new EmailChange($user)); // This sends the email
+        return back()->with('status', 'Email change link sent to your current email address.');
+    }
+
 
     public function verifyTwoFactor(Request $request)
     {
