@@ -1,11 +1,14 @@
 .profile-wrapper {
     max-width: 1200px;
+    min-height: 80vh;
     margin: 40px auto;
     padding: 0 20px;
 }
 
 .profile-container {
     display: flex;
+    min-height: 80vh;
+    flex-direction: column;
     gap: 40px;
     background: white;
     border-radius: 8px;
@@ -13,149 +16,132 @@
     padding: 30px;
 }
 
-/* Left Side - User Info */
-.user-info-section {
-    flex: 1;
-    display: flex;
+.save-changes {
+    display: none;
+    background-color: #e8e6e6;
+    border-radius: 5px;
+    width: 160px;
+    padding: 12px;
+    align-self: flex-end;
     flex-direction: column;
-}
-
-.welcome-title h1 {
-    font-size: 32px;
-    color: #2c3e50;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #e0e0e0;
-}
-
-.user-info {
-    background: #f8f9fa;
-    padding: 25px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
-
-.user-info p {
-    font-size: 16px;
-    color: #555;
-    margin: 15px 0;
-    line-height: 1.6;
-}
-
-.user-info p strong {
-    color: #2c3e50;
-    display: inline-block;
-    width: 80px;
-}
-
-.logout-btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background: #e74c3c;
-    color: white;
-    border: none;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: background 0.3s ease;
+    justify-content: center;
+    gap: 10px;
+    color: rgb(0, 0, 0);
     text-align: center;
-    align-self: flex-start;
 }
 
-.logout-btn:hover {
-    background: #e8685a;
+.changes-button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.changes-button-container button {
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-/* Right Side - Change Form */
-.change-user-info-container {
+.changes-button-container button.cancel-btn {
+    background-color: #474747;
+}
+
+.changes-button-container button:not(.cancel-btn) {
+    background-color: #540185;
+}
+
+.user-info-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     flex: 1;
 }
 
-.change-user-info-container h2 {
-    font-size: 24px;
-    color: #2c3e50;
-    margin-bottom: 25px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group button {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 8px;
-    padding: 8px 16px;
-    border: none;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    background-color: #000000;
-    color: #ffffff;
+.welcome-title {
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 32px;
+    color: #1E1E1E;
+    margin: 0;
 }
 
-
-
-
-.form-group input {
-    display: none;
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 14px;
-    transition: border-color 0.3s ease;
-}
-.form-group input.expanded {
-    display: block;
+.username {
+    color: #540185;
 }
 
-.form-group input:focus {
-    outline: none;
-    border-color: #2c3e50;
-}
-
-.icon{
+.user-info {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #1E1E1E;
     display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-info h2 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.info-item,
+.info-secure-item {
+    display: flex;
+    justify-content: space-between;
     flex-direction: row;
+    border-bottom: 2px solid #E0E0E0;
+}
+
+.info-item p,
+.info-secure-item p {
+    width: 400px;
+}
+
+.info-secure-item a {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.save-btn {
-    width: 100%;
-    background: #27ae60;
-    color: white;
-    border: none;
-    padding: 14px 24px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    margin-top: 10px;
-}
-
-.save-btn:hover {
-    background: #229954;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+@media(max-width: 768px) {
     .profile-container {
-        flex-direction: column;
         padding: 20px;
     }
 
-    .welcome-title h1 {
-        font-size: 24px;
+    .user-info {
+        font-size: 18px;
     }
 
-    .user-info p strong {
-        width: auto;
-        display: block;
-        margin-bottom: 5px;
+    .info-item p,
+    .info-secure-item p {
+        width: 250px;
+    }
+
+    .save-changes {
+        align-self: self-start;
+        padding: 10px;
+    }
+
+}
+
+@media(max-width: 480px) {
+
+    .info-item,
+    .info-secure-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .info-item p,
+    .info-secure-item p {
+        width: 100%;
+    }
+    .save-changes {
+        align-self: center;
+        width: 100%;
     }
 }

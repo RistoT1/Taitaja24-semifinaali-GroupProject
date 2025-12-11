@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Log;
 use App\Models\User;
 
 
@@ -21,6 +22,29 @@ class AuthController extends Controller
         return view('kirjaudu'); // Blade login page
     }
 
+    public function updateProfile(Request $request)
+    {
+        $user = Auth::user();
+
+        $validatedData = $request->validate([
+            'Nimi' => 'string|max:255',
+            'Puhelin' => 'string|max:20',
+        ]);
+
+        Log::info('Validated data:', $validatedData);
+
+
+
+        if (!empty($validatedData['Nimi'])) {
+            $user->Nimi = $validatedData['Nimi'];
+        }
+        if (!empty($validatedData['Puhelin'])) {
+            $user->Puhelin = $validatedData['Puhelin'];
+        }
+        $user->save();
+
+        return response()->json(['message' => 'Profile updated successfully.']);
+    }
 
 
     // Handle login POST
@@ -50,11 +74,13 @@ class AuthController extends Controller
             $user->save();
 
             // Send email notification
-            $user->notify(new \App\Notifications\TwoFactorCode($code));
-
+            try {
+                $user->notify(new \App\Notifications\TwoFactorCode($code));
+            } catch (\Throwable $e) {
+                \Log::error('Failed to send 2FA code email: ' . $e->getMessage());
+            }
 
             Auth::logout();
-
             // store user id for later validation
             session(['2fa:user_id' => $user->User_ID]);
 

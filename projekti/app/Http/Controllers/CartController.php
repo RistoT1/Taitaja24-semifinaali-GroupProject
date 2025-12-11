@@ -78,6 +78,11 @@ class CartController extends Controller
             return response()->json(['error' => 'User not authenticated'], 401);
         }
 
+        $isVerified = auth()->user()->hasVerifiedEmail();
+        log::info('Email verification status:', ['user_id' => $userId, 'is_verified' => $isVerified]);
+        if (!$isVerified) {
+            return response()->json(['error' => 'Email not verified'], 403);
+        }
         if (empty($cart)) {
             return response()->json([
                 'data' => [

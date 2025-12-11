@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ThankyouController;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TuotteetController;
 use App\Http\Controllers\AuthController;
@@ -75,6 +76,9 @@ Route::get('/me', function () {
     return view('profile', ['user' => Auth::user()]);
 })->middleware(['auth', 'verified', PreventBackHistory::class])->name('me');
 
+Route::post('/me/update', [AuthController::class, 'updateProfile'])
+    ->middleware(['auth', 'verified', PreventBackHistory::class])->name('me.update');
+
 // Logout
 Route::post('/logout', function () {
     Auth::logout();
@@ -85,6 +89,10 @@ Route::post('/logout', function () {
 
 // Email verification pages
 Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware(['auth', PreventBackHistory::class])->name('verification.notice');
+
+Route::get('/email/reset', function () {
     return view('auth.verify-email');
 })->middleware(['auth', PreventBackHistory::class])->name('verification.notice');
 
@@ -112,3 +120,6 @@ Route::post('/cart/remove-item', [CartController::class, 'remove'])->middleware(
 Route::post('/cart/checkout', [CartController::class, 'store'])->middleware([PreventBackHistory::class]);
 Route::post('/cart/update-item', [CartController::class, 'update'])->middleware([PreventBackHistory::class]);
 Route::get('/thankyou', [ThankyouController::class, 'index'])->name('thankyou');
+Route::get('/contacts', function () {
+    return view('contact');
+})->middleware(PreventBackHistory::class)->name('contacts');

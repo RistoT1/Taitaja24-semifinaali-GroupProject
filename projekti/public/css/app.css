@@ -14,8 +14,6 @@ ul {
     background: #d9d9d9;
 }
 
-
-
 .reglog {
     padding: 50px 0px 300px 0px;
 }
@@ -93,8 +91,6 @@ ul {
     color: #2c2c2c;
 }
 
-
-
 .footer_wrapper {
     padding: 30px 0px 56px 0px;
     display: flex;
@@ -149,14 +145,10 @@ ul {
     max-width: 350px;
 }
 
-
 .school_logo {
     width: 292px;
     height: 54px;
 }
-
-
-
 
 .products_details {
     padding: 64px 0px 30px 0px;
@@ -165,16 +157,13 @@ ul {
 .products_details_wrapper {
     display: flex;
     justify-content: space-between;
-
 }
-
 
 .products_details_left {
     position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
-
 }
 
 .product-details-img {
@@ -194,7 +183,6 @@ ul {
     border: 2px solid #e0e0e0;
 }
 
-
 .favorites_btn {
     background-color: #cdc8c888;
     border-radius: 50%;
@@ -206,20 +194,15 @@ ul {
     left: -50px;
 }
 
-
 .heart {
     color: #F5F5F5;
     font-size: 25px;
     transition: 0.3s;
 }
 
-
 .heart.active_heart {
     color: rgb(193, 9, 9);
-
 }
-
-
 
 .products_details_name {
     font-family: 'Inter';
@@ -273,7 +256,6 @@ ul {
 
 .products_details_desc.open {
     max-height: 500px;
-    /* Lower value for faster animation */
 }
 
 .products_details_desc.open::after {
@@ -295,15 +277,6 @@ ul {
 .toggle_btn:hover {
     color: rgb(160, 159, 159);
 }
-
-
-
-
-
-
-
-
-
 
 .products_details_quantity {
     display: flex;
@@ -340,8 +313,6 @@ ul {
     font-weight: bold;
 }
 
-
-
 .products_details_buybtn {
     display: flex;
     flex-direction: row;
@@ -349,16 +320,12 @@ ul {
     align-items: center;
     padding: 12px;
     gap: 8px;
-
     position: relative;
     width: 175px;
     height: 48px;
-
     background: #FFFFFF;
     border: 2px solid #2C2C2C;
     border-radius: 8px;
-
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -369,7 +336,6 @@ ul {
     text-align: center;
     color: #1E1E1E;
     cursor: pointer;
-
     transition: 0.5s;
 }
 
@@ -385,13 +351,11 @@ ul {
     cursor: auto;
 }
 
-
 .reviews {
     padding: 64px 0px;
     content-visibility: auto;
     contain-intrinsic-size: 0 500px;
 }
-
 
 .reviews_title {
     font-family: 'Inter';
@@ -400,15 +364,10 @@ ul {
     font-size: 24px;
     line-height: 120%;
     letter-spacing: -0.02em;
-
     color: #1E1E1E;
-
-
-    /* Inside auto layout */
     flex: none;
     order: 0;
     flex-grow: 0;
-
 }
 
 .carousel-container {
@@ -473,8 +432,7 @@ ul {
     width: 3rem;
 }
 
-
-/* Main container */
+/* Recipe Section */
 .recipe-section {
     min-height: 100vh;
     width: 100%;
@@ -488,42 +446,32 @@ ul {
 .img-background {
     width: 100%;
     height: 120vh;
-    /* adjust as needed */
     position: relative;
-
-    /* Combine image and gradient */
     background-image:
         linear-gradient(to bottom,
             rgba(255, 255, 255, 1) 0%,
-            /* White top */
             rgba(0, 0, 0, 0.5) 1%,
             rgba(0, 0, 0, 0.5) 99%,
-            /* Black middle */
-            rgba(255, 255, 255, 1) 100%
-            /* White bottom */
-        ),
+            rgba(255, 255, 255, 1) 100%),
         url("../images/cuttingboard.jpg");
-    /* Your image */
     background-size: 150% auto;
-    /* Fill container */
     background-position: center;
-    /* Center the image */
     background-repeat: no-repeat;
     display: flex;
     flex-direction: row;
     z-index: 0;
 }
 
-/* 50/50 Split Layout */
 .recipe-content-wrapper {
     display: flex;
     width: 100%;
     max-width: 1400px;
     gap: 2rem;
     position: relative;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-/* Left Side: Text Content (50%) */
 .recipe-title-container {
     flex: 1;
     display: flex;
@@ -577,7 +525,6 @@ ul {
 .recipe-title-container h2,
 .recipe-title-desc {
     transition: opacity 0s;
-    /* Instant hide */
 }
 
 .recipe-title-container.collapsed h1,
@@ -586,8 +533,6 @@ ul {
     opacity: 0;
 }
 
-
-/* Right Side: Carousel (50%) */
 .recipe-carousel {
     flex: 1;
     display: flex;
@@ -614,7 +559,6 @@ ul {
     justify-content: start;
 }
 
-/* Recipe Card */
 .recipe-card {
     flex: 1;
     max-width: 50%;
@@ -704,7 +648,6 @@ ul {
     }
 }
 
-/* Navigation Arrows */
 .recipe-arrow {
     color: rgba(179, 176, 173, 0.6);
     font-size: 60px;
@@ -717,7 +660,6 @@ ul {
     transform: scaleX(0.5);
     z-index: 10;
 }
-
 
 .recipe-arrow.collapsed {
     transform: scaleX(0.5) translateX(-20px);
@@ -790,7 +732,6 @@ ul {
     font-size: clamp(30px, 4vw, 60px);
     color: white;
     margin: 20px 0;
-
 }
 
 .recipe-tutorial {
@@ -798,10 +739,9 @@ ul {
     flex-direction: row;
     justify-content: center;
     margin: 1rem;
-    height: 500000px;
+    max-height: 400px;
     overflow-y: auto;
 }
-
 
 .tutorial-section {
     display: none;
@@ -831,197 +771,7 @@ ul {
     margin: 0;
 }
 
-
-.about-section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    content-visibility: auto;
-    contain-intrinsic-size: 0 500px;
-}
-
-.section-wrap {
-    padding: 120px 0;
-    background: linear-gradient(to right, #FFFFFF, #FFFFF5, #FFFFFF);
-    width: 100%;
-    max-width: 2000px;
-}
-
-.about-container {
-    margin: 0 auto;
-    padding: 0 60px;
-}
-
-.title-container {
-    margin-bottom: 80px;
-    text-align: center;
-}
-
-.about_title {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 56px;
-    line-height: 110%;
-    letter-spacing: -0.02em;
-    color: #1A1A1A;
-    margin: 0;
-}
-
-.about-content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.core-values-section {
-    display: flex;
-    flex-direction: row;
-}
-
-.value-text-container {
-    margin-top: 3rem;
-    width: 50%;
-}
-
-.value-text-container p {
-    font-size: 20px;
-    margin-top: 3rem;
-    line-height: 1.5;
-}
-
-/* Main container using flexbox for side-by-side layout */
-.value-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    padding: 0 1rem;
-    width: 50%;
-    position: relative;
-}
-
-/* Card list container - positioned to overlap image */
-.values-list {
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-    /* Larger gap to spread cards across image height */
-    position: relative;
-    z-index: 10;
-    flex-shrink: 0;
-    width: 40%;
-    margin-right: -170px;
-    /* Push cards to overlap image */
-}
-
-/* Base card styling */
-.value-item {
-    background: white;
-    border-radius: 5px;
-    padding: 1rem 1rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-
-.item-right {
-    margin-left: 370px;
-    margin-right: -365px;
-}
-
-/* Number styling */
-.value-item h3 {
-    font-size: 1.2rem;
-    color: #000000;
-    margin: 0;
-    font-weight: 300;
-}
-
-.value-item h4 {
-    font-size: 1rem;
-    color: #2c3e50;
-    margin: 0.5rem 0 1rem 0;
-    font-weight: 600;
-}
-
-.value-item p {
-    color: #313131;
-    line-height: 1;
-    margin: 0.2rem 0;
-    font-size: 1rem;
-}
-
-/* Overlap positioning - each card overlaps the previous one */
-.value-item:nth-child(1) {
-    transform: translateY(0);
-    margin-bottom: 0;
-}
-
-.value-item:nth-child(2) {
-    transform: translateY(0);
-    margin-bottom: 0;
-    z-index: 2;
-}
-
-.value-item:nth-child(3) {
-    transform: translateY(0);
-    z-index: 3;
-}
-
-/* Image container - overlaps with cards */
-.image-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: end;
-    width: 50%;
-    height: 400px;
-    /* Remove overlap, cards now overlap the image */
-    flex-shrink: 0;
-}
-
-/* Image styling with rounded corners */
-.image-wrapper img {
-    width: 80%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-    transform: scaleX(-1);
-}
-
-@media (min-width: 1890px) {
-    .item-right {
-        margin-left: 600px;
-        margin-right: -550px;
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-    .value-container {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .values-list {
-        width: 90%;
-    }
-
-    .image-wrapper {
-        width: 90%;
-        margin-left: 0;
-        height: 500px;
-    }
-
-    .value-item:nth-child(1),
-    .value-item:nth-child(2) {
-        margin-bottom: 1rem;
-    }
-}
-
-/* Add these media queries at the end of your CSS */
+/* Media Queries */
 
 /* Tablet Responsiveness (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
@@ -1043,30 +793,59 @@ ul {
         max-width: 420px;
     }
 
-    .recipe-container {
-        gap: 20px;
+    /* Recipe section tablet */
+    .img-background {
+        height: auto;
+        min-height: 100vh;
+        background-size: cover;
+    }
+
+    .recipe-content-wrapper {
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        gap: 2rem;
     }
 
     .recipe-title-container {
-        margin-left: 3rem;
+        padding: 1.5rem;
+        margin-left: 0;
+    }
+
+    .recipe-title-container h1 {
+        font-size: clamp(48px, 8vw, 72px);
+    }
+
+    .recipe-title-container h2 {
+        font-size: clamp(36px, 6vw, 48px);
+    }
+
+    .recipe-carousel {
+        width: 100%;
+    }
+
+    .recipe-item-container {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .recipe-card {
-        width: 45%;
+        max-width: 45%;
+        height: 300px;
     }
 
-    .core-values-section {
-        gap: 32px;
+    .recipe-card.expanded {
+        max-width: 30%;
+        height: 250px;
     }
 
-    .values-list {
-        gap: 80px;
-        margin-right: -140px;
+    .recipe.expanded {
+        max-width: 90%;
+        margin: 2rem auto;
     }
 
-    .item-right {
-        margin-left: 300px;
-        margin-right: -295px;
+    .recipe-arrow {
+        font-size: 50px;
+        padding: 0.75rem;
     }
 
     .footer_wrapper {
@@ -1135,31 +914,42 @@ ul {
         width: 100%;
     }
 
+    /* Recipe section mobile large */
     .img-background {
         flex-direction: column;
         height: auto;
         min-height: 100vh;
         background-size: cover;
-        padding: 40px 20px;
+        padding: 2rem 1.5rem;
+    }
+
+    .recipe-content-wrapper {
+        flex-direction: column;
+        padding: 0;
+        gap: 2rem;
+        max-width: 100%;
     }
 
     .recipe-title-container {
+        padding: 1rem;
         margin-left: 0;
-        margin-top: 0;
-        padding: 0 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .recipe-title-container.collapsed {
+        display: none;
     }
 
     .recipe-title-container h1 {
-        font-size: clamp(48px, 10vw, 90px);
+        font-size: clamp(40px, 10vw, 64px);
     }
 
     .recipe-title-container h2 {
-        font-size: clamp(36px, 8vw, 60px);
+        font-size: clamp(32px, 8vw, 48px);
     }
 
     .recipe-title-desc p {
-        font-size: clamp(18px, 3vw, 25px);
+        font-size: clamp(16px, 3vw, 20px);
     }
 
     .recipe-carousel {
@@ -1168,76 +958,49 @@ ul {
 
     .recipe-item-container {
         flex-direction: column;
+        gap: 1.5rem;
     }
 
     .recipe-card {
-        width: 70%;
+        max-width: 80%;
+        width: 80%;
+        height: 250px;
+    }
+
+    .recipe-card.expanded {
+        max-width: 70%;
+        height: 200px;
+    }
+
+    .recipe.expanded {
+        max-width: 100%;
+        max-height: none;
+        padding: 1rem;
+    }
+
+    .recipe h2 {
+        font-size: clamp(24px, 6vw, 36px);
+        margin: 15px 0;
+    }
+
+    .recipe-tutorial {
+        max-height: 300px;
+        margin: 0.5rem;
     }
 
     .recipe-arrow {
-        padding: 1rem;
-        font-size: 50px;
+        padding: 0.75rem;
+        font-size: 45px;
     }
 
-    .about-container {
-        padding: 0 30px;
+    .toggle-group {
+        gap: 1rem;
+        flex-wrap: wrap;
     }
 
-    .section-wrap {
-        padding: 80px 0;
-    }
-
-    .title-container {
-        margin-bottom: 60px;
-    }
-
-    .about_title {
-        font-size: clamp(36px, 6vw, 56px);
-    }
-
-    .core-values-section {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .value-text-container,
-    .value-container {
-        width: 100%;
-    }
-
-    .value-text-container {
-        margin-top: 0;
-    }
-
-    .value-text-container p {
-        font-size: 18px;
-        margin-top: 2rem;
-    }
-
-    .value-container {
-        flex-direction: column;
-        padding: 0;
-    }
-
-    .values-list {
-        width: 100%;
-        margin-right: 0;
-        gap: 24px;
-    }
-
-    .item-right {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .image-wrapper {
-        width: 100%;
-        height: 400px;
-        justify-content: center;
-    }
-
-    .image-wrapper img {
-        width: 100%;
+    .recipe-tutorial-toggle-btn {
+        padding: 10px 16px;
+        font-size: 13px;
     }
 
     .footer_wrapper {
@@ -1373,35 +1136,46 @@ ul {
         font-size: 16px;
     }
 
+    /* Recipe section mobile small */
     .img-background {
         flex-direction: column;
         height: auto;
         min-height: 100vh;
         background-size: cover;
-        padding: 20px 16px;
+        padding: 1.5rem 1rem;
+    }
+
+    .recipe-content-wrapper {
+        flex-direction: column;
+        padding: 0;
+        gap: 1.5rem;
+        max-width: 100%;
     }
 
     .recipe-title-container {
+        padding: 0.5rem;
         margin-left: 0;
-        margin-top: 0;
-        padding: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .recipe-title-container.collapsed {
+        display: none;
     }
 
     .recipe-title-container h1 {
-        font-size: clamp(36px, 12vw, 90px);
+        font-size: clamp(32px, 12vw, 56px);
     }
 
     .recipe-title-container h2 {
-        font-size: clamp(28px, 10vw, 60px);
+        font-size: clamp(24px, 10vw, 40px);
     }
 
     .recipe-title-desc {
-        margin-top: 2rem;
+        margin-top: 1.5rem;
     }
 
     .recipe-title-desc p {
-        font-size: clamp(16px, 4vw, 25px);
+        font-size: clamp(14px, 4vw, 18px);
     }
 
     .recipe-carousel {
@@ -1410,82 +1184,66 @@ ul {
 
     .recipe-item-container {
         flex-direction: column;
+        gap: 1rem;
     }
 
     .recipe-card {
+        width: 90%;
+        max-width: 90%;
+        height: 220px;
+        min-height: 220px;
+    }
+
+    .recipe-card.expanded {
         width: 85%;
-        height: auto;
+        max-width: 85%;
+        height: 180px;
+        min-height: 180px;
+    }
+
+    .recipe.expanded {
+        max-width: 100%;
+        max-height: none;
+        padding: 0.75rem;
+    }
+
+    .recipe h2 {
+        font-size: clamp(20px, 7vw, 32px);
+        margin: 10px 0;
+        padding: 3px;
+    }
+
+    .recipe-tutorial {
+        max-height: 250px;
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+    }
+
+    .tutorial-section h3 {
+        font-size: clamp(16px, 4vw, 20px);
+    }
+
+    .tutorial-section li {
+        font-size: clamp(12px, 3vw, 16px);
+        line-height: 1.4;
     }
 
     .recipe-arrow {
         padding: 0.5rem;
-        font-size: 40px;
+        font-size: 35px;
     }
 
-    .about-container {
-        padding: 0 20px;
+    .toggle-group {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        padding: 0.5rem;
     }
 
-    .section-wrap {
-        padding: 40px 0;
-    }
-
-    .title-container {
-        margin-bottom: 40px;
-    }
-
-    .about_title {
-        font-size: clamp(32px, 8vw, 56px);
-    }
-
-    .core-values-section {
-        flex-direction: column;
-        gap: 32px;
-    }
-
-    .value-text-container,
-    .value-container {
-        width: 100%;
-    }
-
-    .value-text-container {
-        margin-top: 0;
-        padding-top: 1rem;
-    }
-
-    .value-text-container p {
-        font-size: 16px;
-        margin-top: 1.5rem;
-    }
-
-    .value-container {
-        flex-direction: column;
-        padding: 0;
-    }
-
-    .values-list {
-        width: 100%;
-        margin-right: 0;
-        gap: 20px;
-    }
-
-    .item-right {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .value-item {
-        padding: 1rem;
-    }
-
-    .image-wrapper {
-        width: 100%;
-        height: 300px;
-        justify-content: center;
-    }
-
-    .image-wrapper img {
-        width: 100%;
+    .recipe-tutorial-toggle-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+        flex: 1;
+        min-width: 100px;
     }
 
     .footer_wrapper {

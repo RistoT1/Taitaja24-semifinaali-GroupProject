@@ -116,31 +116,47 @@ loadmoreBtn.addEventListener("click", () => {
 
 /* ---------------- RENDER PRODUCTS ---------------- */
 
-function RenderProducts(arr) {
-    productGrid.innerHTML = ""
+async function imageExists(path) {
+    return fetch(path, { method: "HEAD" })
+        .then(res => res.ok)
+        .catch(() => false);
+}
+
+async function RenderProducts(arr) {
+    productGrid.innerHTML = "";
 
     if (arr.length === 0) {
-        productGrid.innerHTML = `<p>No products found.</p>`
-        return
+        productGrid.innerHTML = `<p>No products found.</p>`;
+        return;
     }
 
-    const html = arr.map(p => `
-        <div class="product_card" data-id="${p.Tuote_ID}">
-            <img src="${p.Kuva ? `/images/${p.Kuva}.jpg` : '/images/placeholder.jpg'}" alt="${p.Nimi}">
-            <h4>${p.Nimi}</h4>
-            <p class="price">${p.Hinta} €</p>
-            <p class="brand">${p.Kategoria}</p>
-        </div>
-    `)
+    const html = arr.map(p => {
+        const imgPath = `/images/${p.Kuva}.jpg`;
+        const fallback = "/images/placeholder.jpg";
 
-    productGrid.innerHTML = html.join("")
+        return `
+            <div class="product_card" data-id="${p.Tuote_ID}">
+                <img 
+                    src="${imgPath}"
+                    alt="${p.Nimi}"
+                    onerror="this.src='${fallback}'"
+                />
+                <h4>${p.Nimi}</h4>
+                <p class="price">${p.Hinta} €</p>
+                <p class="brand">${p.Kategoria}</p>
+            </div>
+        `;
+    });
 
-    document.querySelectorAll(".product_card").forEach(card => {
+    productGrid.innerHTML = html.join("");
+
+    document.querySelectorAll(".product_card").forEach(card =>
         card.addEventListener("click", () => {
-            window.location.href = `product?id=${card.dataset.id}`
+            window.location.href = `product?id=${card.dataset.id}`;
         })
-    })
+    );
 }
+
 
 /* ---------------- FILTERS ---------------- */
 

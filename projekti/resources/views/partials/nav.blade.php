@@ -26,8 +26,6 @@
                         </div>
                         
                         @auth
-                            <span style="text-align: center; display: flex; align-items: center;">Welcome,
-                                {{ auth()->user()->Sähköposti }}</span>
                             <button class="signin_btn"><a href="/me">Profiili</a></button>
                             <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                                 @csrf
@@ -59,8 +57,6 @@
                         <li><a href="/about">About</a></li>
                         <li><a href="/contacts">Contacts</a></li>
                         @auth
-                            <li><span style="text-align: center; display: flex; align-items: center;">Welcome,
-                                    {{ auth()->user()->Sähköposti }}</span></li>
                             <li><a href="/me">Profiili</a></li>
                             <li>
                                 <form action="{{ route('logout') }}" method="POST" style="display:inline;">

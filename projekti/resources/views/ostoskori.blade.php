@@ -66,31 +66,47 @@
                 }, 300); // wait 300ms after last click
             }
 
-            if(orderForm) {
-                orderForm.addEventListener('submit', (e) => {
+            if (orderForm) {
+                orderForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
 
-                    fetch('/cart/checkout', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    try {
+                        const response = await fetch('/cart/checkout', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                            }
+                        });
+
+                        const data = await response.json();
+
+                        if (!response.ok) {
+                            // Handle HTTP errors explicitly
+                            if (response.status === 403) {
+                                window.location.href = '/email/verify';
+                            } else if (response.status === 400) {
+                                alert(data.data?.message || "Ostoskorisi on tyhjä");
+                            } else {
+                                alert(data.error || "Tilaus epäonnistui. Yritä uudelleen.");
+                            }
+                            return;
                         }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
+
+                        // Success: redirect if URL provided
                         if (data.data && data.data.redirect_url) {
                             window.location.href = data.data.redirect_url;
                         } else {
                             alert("Tilaus epäonnistui. Yritä uudelleen.");
                         }
-                    })
-                    .catch(error => {
+
+                    } catch (error) {
                         console.error("Error during checkout:", error);
                         alert("Tilaus epäonnistui. Yritä uudelleen.");
-                    });
+                    }
                 });
             }
+
 
             async function updateServer(itemId, quantity) {
                 try {

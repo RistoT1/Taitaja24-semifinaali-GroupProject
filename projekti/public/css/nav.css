@@ -41,21 +41,26 @@ ul {
     list-style: none;
 }
 
-.header_menu_list > li > a {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 100%;
-    display: flex;
-    align-items: center;
-    color: #1E1E1E;
+.header_menu_list>li>a {
     text-decoration: none;
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    color: #000000;
+    opacity: 0.8;
+    text-align: center;
+    background: none;
+    /* Reset button background */
+    border: none;
+    /* Reset button border */
+    cursor: pointer;
+    padding: 0;
 }
 
 .header_menu_btn {
     display: flex;
-    gap: 12px;
+    gap: 20px;
 }
 
 /* Cart */
@@ -101,26 +106,25 @@ ul {
     transition: 0.3s;
 }
 
-.signin_btn > a {
-    text-decoration: none;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 100%;
+.signin_btn>a {
     color: #1E1E1E;
     transition: 0.3s;
-    display: flex; /* Added for centering text */
-    justify-content: center; /* Added for centering text */
-    align-items: center; /* Added for centering text */
-    height: 100%; /* Added for centering text */
+    display: flex;
+    /* Added for centering text */
+    justify-content: center;
+    /* Added for centering text */
+    align-items: center;
+    /* Added for centering text */
+    height: 100%;
+    /* Added for centering text */
+    text-decoration: none;
 }
 
 .signin_btn:hover {
     background: #2C2C2C;
 }
 
-.signin_btn:hover > a {
+.signin_btn:hover>a {
     color: #F5F5F5;
 }
 
@@ -134,7 +138,7 @@ ul {
     transition: 0.3s;
 }
 
-.register_btn > a {
+.register_btn>a {
     text-decoration: none;
     font-family: 'Inter';
     font-style: normal;
@@ -143,23 +147,28 @@ ul {
     line-height: 100%;
     color: #F5F5F5;
     transition: 0.3s;
-    display: flex; /* Added for centering text */
-    justify-content: center; /* Added for centering text */
-    align-items: center; /* Added for centering text */
-    height: 100%; /* Added for centering text */
+    display: flex;
+    /* Added for centering text */
+    justify-content: center;
+    /* Added for centering text */
+    align-items: center;
+    /* Added for centering text */
+    height: 100%;
+    /* Added for centering text */
 }
 
 .register_btn:hover {
     background: #E3E3E3;
 }
 
-.register_btn:hover > a {
+.register_btn:hover>a {
     color: #1E1E1E;
 }
 
 /* Burger Menu Button */
 .burger_menu {
-    display: none; /* hidden on desktop */
+    display: none;
+    /* hidden on desktop */
     flex-direction: column;
     gap: 5px;
     background: none;
@@ -225,7 +234,8 @@ ul {
 
 .burger_menu_list li a,
 .burger_menu_list li span,
-.burger_menu_list li button { /* Added button for logout styling */
+.burger_menu_list li button {
+    /* Added button for logout styling */
     text-decoration: none;
     font-family: 'Red Hat Display', sans-serif;
     font-weight: 500;
@@ -234,14 +244,17 @@ ul {
     color: #1E1E1E;
     opacity: 0.8;
     text-align: center;
-    background: none; /* Reset button background */
-    border: none; /* Reset button border */
+    background: none;
+    /* Reset button background */
+    border: none;
+    /* Reset button border */
     cursor: pointer;
     padding: 0;
 }
 
 /* Responsive adjustments */
 @media screen and (max-width: 1024px) {
+
     /* Show burger menu and hide desktop menu on smaller screens */
     .burger_menu {
         display: flex;

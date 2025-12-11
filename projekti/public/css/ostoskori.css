@@ -29,18 +29,27 @@ main {
 .one-row {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 20px;
+    width: 600px; /* fixed width */
 }
 
 .item-img {
     width: 130px;
-    border-right: 1px solid #e0e0e0;
     padding-right: 20px;
 }
 
 .item-info {
+    flex: 2;           /* takes 2 parts of remaining space */
     display: flex;
     flex-direction: column;
+    gap: 5px;
+}
+
+.item-qty {
+    flex: 1;           /* takes 1 part of remaining space */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     gap: 5px;
 }
 
