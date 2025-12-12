@@ -7,8 +7,9 @@
         <section class="products">
             <div class="container">
                 <div class="products_wrapper">
-                    <button class="filters_toggle">Filters &#9776;</button>
                     <div class="products_left">
+                        <h3 class="filter-title">Suodattimet <span class="close-filters"><i
+                                    class="fa-solid fa-x"></i></span></h3>
                         <h3>Price</h3>
                         <div class="price_inputs">
                             <div class="price_input_box">
@@ -19,6 +20,12 @@
                                 <label for="maxPrice">Max (€)</label>
                                 <input type="number" id="maxPrice" placeholder="500">
                             </div>
+                        </div>
+                        <div class="filter-buttons mobile">
+                            <button class="button-right">New</button>
+                            <button>Price ascending</button>
+                            <button class="button-right">Price descending</button>
+                            <button>Rating</button>
                         </div>
                         <h3 id="manufacturer_title" class="toggle_title">Manufacturer</h3>
                         <ul class="manufacturer_list" id="manufacturer_list"></ul>
@@ -33,10 +40,16 @@
                                 </li>
                             </ul>
                         </div>
-
-
                     </div>
+
+                    <!-- mobile view -->
+
                     <div class="products_right">
+                        <div class="mobile-filter-container">
+                            <button class="category-filter-notice" id="categoryNotice"> hhehe 
+                                <i class="fa-solid fa-x"></i></button>
+                            <button class="filters_toggle">Suodata <span><i class="fa-solid fa-filter"></i></span></button>
+                        </div>
                         <div class="products_right_nav">
                             <input type="text" name="search_input" class="search_input" placeholder="Search products">
                             <div class="filter-buttons">
@@ -47,7 +60,7 @@
                             </div>
                         </div>
                         <div class="product-grid" id="productGrid"> </div>
-                        <div  class="loadmore-button-container">
+                        <div class="loadmore-button-container">
                             <button class="loadmore-button" id="loadmoreBtn">load more</button>
                         </div>
                     </div>
