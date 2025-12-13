@@ -1,0 +1,152 @@
+# Multi-stage build for smaller final image
+FROM php:8.2-apache AS base
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install PHP extensions with opcache for production
+RUN docker-php-ext-install -j$(nproc) \
+    pdo_mysql \
+    mysqli \
+    mbstring \
+    exif \
+    pcntl \
+    bcmath \
+    gd \
+    zip \
+    opcache
+
+# Production PHP configuration
+RUN { \
+    echo 'opcache.enable=1'; \
+    echo 'opcache.memory_consumption=256'; \
+    echo 'opcache.interned_strings_buffer=16'; \
+    echo 'opcache.max_accelerated_files=20000'; \
+    echo 'opcache.validate_timestamps=0'; \
+    echo 'opcache.revalidate_freq=0'; \
+    echo 'opcache.fast_shutdown=1'; \
+} > /usr/local/etc/php/conf.d/opcache-prod.ini
+
+# Production PHP settings
+RUN { \
+    echo 'display_errors=Off'; \
+    echo 'display_startup_errors=Off'; \
+    echo 'error_reporting=E_ALL & ~E_DEPRECATED & ~E_STRICT'; \
+    echo 'log_errors=On'; \
+    echo 'error_log=/var/log/apache2/php_errors.log'; \
+    echo 'memory_limit=256M'; \
+    echo 'max_execution_time=60'; \
+    echo 'max_input_time=60'; \
+    echo 'post_max_size=64M'; \
+    echo 'upload_max_filesize=64M'; \
+} > /usr/local/etc/php/conf.d/production.ini
+
+# Apache performance tuning
+RUN { \
+    echo 'EnableSendfile Off'; \
+    echo 'EnableMMAP Off'; \
+    echo 'KeepAlive On'; \
+    echo 'MaxKeepAliveRequests 100'; \
+    echo 'KeepAliveTimeout 5'; \
+} >> /etc/apache2/apache2.conf
+
+# Enable required Apache modules
+RUN a2enmod rewrite headers expires deflate
+
+# Configure Apache AllowOverride
+RUN sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
+
+# Set Apache DocumentRoot
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
+    && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+
+# Security headers
+RUN { \
+    echo '<IfModule mod_headers.c>'; \
+    echo '    Header set X-Content-Type-Options "nosniff"'; \
+    echo '    Header set X-Frame-Options "SAMEORIGIN"'; \
+    echo '    Header set X-XSS-Protection "1; mode=block"'; \
+    echo '</IfModule>'; \
+} > /etc/apache2/conf-available/security-headers.conf \
+    && a2enconf security-headers
+
+WORKDIR /var/www/html
+
+# ============================================
+# Composer build stage
+# ============================================
+FROM base AS composer-build
+
+# Install composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Copy only composer files first (layer caching)
+COPY composer.json composer.lock ./
+
+# Install production dependencies (no dev packages)
+RUN composer install \
+    --no-dev \
+    --no-scripts \
+    --no-autoloader \
+    --prefer-dist \
+    --optimize-autoloader \
+    --no-interaction
+
+# Copy application files
+COPY . .
+
+# Generate optimized autoloader
+RUN composer dump-autoload --optimize --classmap-authoritative --no-dev
+
+# ============================================
+# Final production stage
+# ============================================
+FROM base AS production
+
+# Copy application from composer stage
+COPY --from=composer-build --chown=www-data:www-data /var/www/html /var/www/html
+
+# Set correct permissions (775 for write directories, 755 for others)
+RUN chown -R www-data:www-data /var/www/html \
+    && find /var/www/html -type f -exec chmod 644 {} \; \
+    && find /var/www/html -type d -exec chmod 755 {} \; \
+    && chmod -R 775 /var/www/html/storage \
+    && chmod -R 775 /var/www/html/bootstrap/cache
+
+# Remove sensitive files from production
+RUN rm -rf \
+    /var/www/html/.env.example \
+    /var/www/html/.git \
+    /var/www/html/.gitignore \
+    /var/www/html/.editorconfig \
+    /var/www/html/tests \
+    /var/www/html/phpunit.xml \
+    /var/www/html/README.md
+
+# Laravel production optimizations (run these after .env is available)
+# These should be run in your deployment script, not in Dockerfile:
+# php artisan config:cache
+# php artisan route:cache
+# php artisan view:cache
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
+    CMD curl -f http://localhost/ || exit 1
+
+EXPOSE 80
+
+# Use non-root user for Apache
+USER www-data
+
+CMD ["apache2-foreground"]

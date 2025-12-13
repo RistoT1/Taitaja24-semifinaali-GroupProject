@@ -26,7 +26,8 @@
                             <div class="products_details_desc" id="text">
                                 {{$tuote->Kuvaus}}
                                 <div class="kategoria" id="kategory" data-product-kategoria="{{ $tuote->Kategoria }}">
-                                    {{ $tuote->Kategoria }}</div>
+                                    {{ $tuote->Kategoria }}
+                                </div>
                             </div>
                             <button class="toggle_btn">Show more</button>
                             <div class="products_details_quantity">
@@ -180,18 +181,18 @@
                         <!-- Right side: Carousel (50%) -->
                         <div class="recipe-carousel" id="recipeCarousel">
                             <div class="recipe-item-container">
-                                <button class="recipe-arrow left-arrow" id="recipePrev">&#10094;</button>
-
-                                <div class="recipe-card" id="recipeCard">
-                                    <div class="recipe-img-container">
-                                        <div id="recipeImg" class="recipe-img"></div>
+                                <div class="recipe-item">
+                                    <button class="recipe-arrow left-arrow" id="recipePrev">&#10094;</button>
+                                    <div class="recipe-card" id="recipeCard">
+                                        <div class="recipe-img-container">
+                                            <div id="recipeImg" class="recipe-img"></div>
+                                        </div>
                                     </div>
+                                    <button class="recipe-arrow right-arrow" id="recipeNext">&#10095;</button>
                                 </div>
 
-                                <button class="recipe-arrow right-arrow" id="recipeNext">&#10095;</button>
-
                                 <div class="recipe">
-                                    <h2>Porkkana keitto</h2>
+                                    <h2></h2>
                                     <div class="recipe-tutorial-toggle-container">
                                         <div class="toggle-group">
                                             <button class="recipe-tutorial-toggle-btn toggled"

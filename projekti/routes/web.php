@@ -153,7 +153,6 @@ Route::get('/password/show/reset/{token}', [PasswordController::class, 'showRese
 Route::post('/password/update', [PasswordController::class, 'updatePassword'])->middleware(PreventBackHistory::class)
     ->name('password.update');
 
-/*Route::fallback(function () {
+Route::fallback(function () {
     return redirect()->route('index');
 });
-*/
