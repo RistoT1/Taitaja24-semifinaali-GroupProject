@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OsoiteController;
 use App\Http\Controllers\ThankyouController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ReseptitController;
 use App\Http\Controllers\EmailChangeController;
 use App\Http\Controllers\PasswordController;
+use App\Models\Osoite;
+
 /*
 |--------------------------------------------------------------------------
 | Public Routes
@@ -72,13 +75,21 @@ Route::get('/test-auth', function () {
 |--------------------------------------------------------------------------
 */
 
-// Profile page
 Route::get('/me', function () {
-    return view('profile', ['user' => Auth::user()]);
+    $user = Auth::user();
+    $osoite = $user->Osoite_ID ? Osoite::find($user->Osoite_ID) : null;
+    
+    return view('profile', [
+        'user' => $user,
+        'osoite' => $osoite
+    ]);
 })->middleware(['auth', 'verified', PreventBackHistory::class])->name('me');
 
 Route::post('/me/update', [AuthController::class, 'updateProfile'])
     ->middleware(['auth', 'verified', PreventBackHistory::class])->name('me.update');
+
+Route::post('/me/update/address', [OsoiteController::class, 'update'])
+    ->middleware(['auth', 'verified', PreventBackHistory::class])->name('me.update.address');
 
 // Logout
 Route::post('/logout', function () {
@@ -139,6 +150,8 @@ Route::get('/contacts', function () {
     return view('contact');
 })->middleware(PreventBackHistory::class)->name('contacts');
 
+
+
 // Send reset link
 Route::post('/password/custom-reset', [PasswordController::class, 'sendResetLink'])
     ->middleware(PreventBackHistory::class)
@@ -152,6 +165,7 @@ Route::get('/password/show/reset/{token}', [PasswordController::class, 'showRese
 // Handle new password
 Route::post('/password/update', [PasswordController::class, 'updatePassword'])->middleware(PreventBackHistory::class)
     ->name('password.update');
+
 
 Route::fallback(function () {
     return redirect()->route('index');

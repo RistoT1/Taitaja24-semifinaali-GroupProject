@@ -104,7 +104,7 @@ CREATE TABLE `osoitetiedot` (
   `Postinumero` varchar(10) DEFAULT NULL,
   `Kaupunki` varchar(100) DEFAULT NULL,
   `Maa` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 

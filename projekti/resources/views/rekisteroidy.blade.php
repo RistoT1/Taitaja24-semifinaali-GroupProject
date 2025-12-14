@@ -12,7 +12,7 @@
         <label for="email">Email</label>
         <input required type="email" name="Sähköposti" placeholder="Email" value="{{ old('Sähköposti') }}">
 
-        <label for="puhelin">Email</label>
+        <label for="puhelin">Puhelin</label>
         <input required type="tel" name="Puhelin" placeholder="Puhelin numero" value="{{ old('Puhelin') }}">
 
         <label for="password">Password</label>

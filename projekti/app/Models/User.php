@@ -21,9 +21,16 @@ class User extends Authenticatable implements MustVerifyEmail
         'Nimi',
         'Sähköposti',
         'Puhelin',
+        'Osoite_ID',
         'SalasanaHash',
         'email_verified_at',
     ];
+
+    // app/Models/User.php
+    public function osoite()
+    {
+        return $this->belongsTo(Osoite::class, 'Osoite_ID', 'Osoite_ID');
+    }
 
     protected $hidden = [
         'SalasanaHash',
