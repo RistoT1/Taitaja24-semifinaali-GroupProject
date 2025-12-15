@@ -37,7 +37,7 @@ class TuotteetController extends Controller
         // No cursor → first page
         if (!$request->filled('cursor_created_at') || !$request->filled('cursor_id')) {
 
-            $tuotteet = Tuote::orderBy('Lisätty', 'DESC')
+            $tuotteet = Tuote::orderBy('LisÃ¤tty', 'DESC')
                 ->orderBy('Tuote_ID', 'DESC')
                 ->limit($limit)
                 ->get();
@@ -48,13 +48,13 @@ class TuotteetController extends Controller
             $cursorId = $request->cursor_id;
 
             $tuotteet = Tuote::where(function ($q) use ($cursorTime, $cursorId) {
-                $q->where('Lisätty', '<', $cursorTime)
+                $q->where('LisÃ¤tty', '<', $cursorTime)
                     ->orWhere(function ($q2) use ($cursorTime, $cursorId) {
-                        $q2->where('Lisätty', '=', $cursorTime)
+                        $q2->where('LisÃ¤tty', '=', $cursorTime)
                             ->where('Tuote_ID', '<', $cursorId);
                     });
             })
-                ->orderBy('Lisätty', 'DESC')
+                ->orderBy('LisÃ¤tty', 'DESC')
                 ->orderBy('Tuote_ID', 'DESC')
                 ->limit($limit)
                 ->get();
@@ -65,7 +65,7 @@ class TuotteetController extends Controller
         return response()->json([
             'data' => $tuotteet,
             'next_cursor' => $last ? [
-                'cursor_created_at' => $last->Lisätty,
+                'cursor_created_at' => $last->LisÃ¤tty,
                 'cursor_id' => $last->Tuote_ID
             ] : null
         ]);
@@ -94,11 +94,11 @@ class TuotteetController extends Controller
         if ($request->has('searchOrder')) {
             switch ($request->searchOrder) {
                 case 'created_at_asc':
-                    $query->orderBy('Lisätty', 'asc'); // newest first
+                    $query->orderBy('LisÃ¤tty', 'asc'); // newest first
                     break;
 
                 case 'created_at_desc':
-                    $query->orderBy('Lisätty', 'desc'); // oldest first
+                    $query->orderBy('LisÃ¤tty', 'desc'); // oldest first
                     break;
 
                 case 'price_asc':
