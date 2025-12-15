@@ -3,21 +3,24 @@ FROM php:8.2-apache AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install system dependencies
+# Install system dependencies including PostgreSQL
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
     libzip-dev \
+    libpq-dev \
+    postgresql-client \
     zip \
     unzip \
+    curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install PHP extensions with opcache for production
+# Install PHP extensions with PostgreSQL support
 RUN docker-php-ext-install -j$(nproc) \
-    pdo_mysql \
-    mysqli \
+    pdo_pgsql \
+    pgsql \
     mbstring \
     exif \
     pcntl \
@@ -134,16 +137,11 @@ RUN rm -rf \
     /var/www/html/phpunit.xml \
     /var/www/html/README.md
 
-# Laravel production optimizations (run these after .env is available)
-# These should be run in your deployment script, not in Dockerfile:
-# php artisan config:cache
-# php artisan route:cache
-# php artisan view:cache
-
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
     CMD curl -f http://localhost/ || exit 1
 
+# Expose port (Render will map this)
 EXPOSE 80
 
 # Use non-root user for Apache

@@ -14,6 +14,9 @@ const closeBtn = document.querySelector(".close-filters");
 const productsLeft = document.querySelector(".products_left");
 const catTitle = document.querySelector(".categories_title");
 
+// Get base URL from window (set in Blade template)
+const BASE_URL = window.APP_URL || '';
+
 let activeSort = null;
 
 /* ---------------- BURGER MENU EVENTS ---------------- */
@@ -61,7 +64,7 @@ window.addEventListener("scroll", () => {
 /* ---------------- FETCH CATEGORIES ---------------- */
 async function FetchCategories() {
     try {
-        const res = await fetch("/api/categories");
+        const res = await fetch(`${BASE_URL}/api/categories`);
         const json = await res.json();
         RenderCategories(json.data);
     } catch (err) {
@@ -110,7 +113,7 @@ function RenderCategories(categories) {
 
 /* ---------------- FETCH PRODUCTS ---------------- */
 async function FetchProducts({ Kategoria = null, cursorCreatedAt = null, cursorId = null } = {}) {
-    let url = "/api/products";
+    let url = `${BASE_URL}/api/products`;
     const params = [];
 
     if (Kategoria) params.push(`Kategoria=${encodeURIComponent(Kategoria)}`);
@@ -173,8 +176,8 @@ async function RenderProducts(arr) {
     }
 
     const html = arr.map(p => {
-        const imgPath = `/images/${p.Kuva}.jpg`;
-        const fallback = "/images/placeholder.jpg";
+        const imgPath = `${BASE_URL}/images/${p.Kuva}.jpg`;
+        const fallback = `${BASE_URL}/images/placeholder.jpg`;
 
         return `
             <div class="product_card" data-id="${p.Tuote_ID}">
@@ -194,7 +197,7 @@ async function RenderProducts(arr) {
 
     document.querySelectorAll(".product_card").forEach(card =>
         card.addEventListener("click", () => {
-            window.location.href = `product?id=${card.dataset.id}`;
+            window.location.href = `${BASE_URL}/product?id=${card.dataset.id}`;
         })
     );
 }

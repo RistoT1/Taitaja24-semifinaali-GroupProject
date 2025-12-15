@@ -1,3 +1,6 @@
+// Get base URL from window (set in Blade template)
+const BASE_URL = window.APP_URL || '';
+
 // ========================
 // Element references
 // ========================
@@ -86,7 +89,7 @@ addToCartBtn?.addEventListener('click', async () => {
     const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
 
     try {
-        const response = await fetch("/cart", {
+        const response = await fetch(`${BASE_URL}/cart`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -99,17 +102,17 @@ addToCartBtn?.addEventListener('click', async () => {
 
         const data = await response.json();
         if (data.data?.success) {
-            // Update notification (you already have this)
+            // Update notification
             notification.innerHTML = "<p>Tuote lisätty onnistuneesti</p>";
             notification.style.opacity = 0;
             setTimeout(() => notification.style.transition = "opacity 0.5s ease", 50);
             setTimeout(() => notification.style.opacity = 1, 100);
             setTimeout(() => notification.style.opacity = 0, 3100);
 
-            // --- Update cart count in header ---
+            // Update cart count in header
             const cartCountEl = document.getElementById("cartCount");
             if (cartCountEl) {
-                const newCount = data.data?.cartCount ?? 0; // Assuming your server returns updated cart count
+                const newCount = data.data?.cartCount ?? 0;
                 cartCountEl.textContent = newCount;
                 cartCountEl.style.display = newCount > 0 ? "flex" : "none";
             }
@@ -150,7 +153,7 @@ function stopAutoScroll() {
 
 async function fetchRecipes() {
     try {
-        const response = await fetch(`/reseptit?Kategoria=${Kategoria}`);
+        const response = await fetch(`${BASE_URL}/reseptit?Kategoria=${Kategoria}`);
         console.log("kategoria:", Kategoria)
         if (!response.ok) throw new Error(`Virheellinen vastaus: ${response.status}`);
         const data = await response.json();
@@ -180,7 +183,7 @@ function renderRecipeCarousel(data) {
             .map(s => `<li>${s.trim()}${s.endsWith(".") ? "" : "."}</li>`)
             .join("");
 
-        recipeImg.style.backgroundImage = `url(images/${recipe.Kuva})`;
+        recipeImg.style.backgroundImage = `url(${BASE_URL}/images/${recipe.Kuva})`;
     };
 
     updateCard(currentIndex);
