@@ -127,16 +127,14 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 /var/www/html/storage \
     && chmod -R 775 /var/www/html/bootstrap/cache
 
-# Clear Laravel cache BEFORE switching to www-data user
+# Clear Laravel cache as www-data user
+USER www-data
 RUN php artisan config:clear || true \
     && php artisan cache:clear || true \
     && php artisan view:clear || true
 
-# Fix permissions AGAIN after artisan commands (ADD THIS)
-RUN chown -R www-data:www-data /var/www/html/storage \
-    && chown -R www-data:www-data /var/www/html/bootstrap/cache \
-    && chmod -R 775 /var/www/html/storage \
-    && chmod -R 775 /var/www/html/bootstrap/cache
+# Switch back to root to remove files and create startup script
+USER root
 
 # Remove sensitive files from production
 RUN rm -rf \
@@ -148,6 +146,12 @@ RUN rm -rf \
     /var/www/html/phpunit.xml \
     /var/www/html/README.md
 
+# Create startup script that clears cache on every container start
+RUN echo '#!/bin/sh\n\
+php artisan config:cache\n\
+exec apache2-foreground' > /usr/local/bin/start.sh \
+    && chmod +x /usr/local/bin/start.sh
+
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
     CMD curl -f http://localhost/ || exit 1
@@ -158,4 +162,4 @@ EXPOSE 80
 # Use non-root user for Apache
 USER www-data
 
-CMD ["apache2-foreground"]
+CMD ["/usr/local/bin/start.sh"]
