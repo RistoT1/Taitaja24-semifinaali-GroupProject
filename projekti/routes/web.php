@@ -74,6 +74,38 @@ Route::get('/test-auth', function () {
 | Protected Routes (Auth + PreventBackHistory)
 |--------------------------------------------------------------------------
 */
+Route::get('/debug-db', function() {
+    try {
+        // Test basic connection
+        $pdo = DB::connection()->getPdo();
+        
+        // Test if tuotteet table exists
+        $tables = DB::select('SHOW TABLES');
+        
+        // Test a simple query
+        $count = DB::table('tuotteet')->count();
+        
+        return response()->json([
+            'status' => 'Database connected ✓',
+            'database' => DB::connection()->getDatabaseName(),
+            'tables' => $tables,
+            'tuotteet_count' => $count,
+            'env_check' => [
+                'DB_CONNECTION' => env('DB_CONNECTION'),
+                'DB_HOST' => env('DB_HOST'),
+                'DB_DATABASE' => env('DB_DATABASE'),
+            ]
+        ]);
+        
+    } catch (\Exception $e) {
+        return response()->json([
+            'error' => $e->getMessage(),
+            'trace' => $e->getTraceAsString()
+        ], 500);
+    }
+}); //debug route
+
+
 
 Route::get('/me', function () {
     $user = Auth::user();
