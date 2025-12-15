@@ -74,37 +74,40 @@ Route::get('/test-auth', function () {
 | Protected Routes (Auth + PreventBackHistory)
 |--------------------------------------------------------------------------
 */
-Route::get('/debug-db', function() {
+Route::get('/debug-products', function() {
     try {
-        // Test basic connection
-        $pdo = DB::connection()->getPdo();
+        // PostgreSQL syntax for getting columns
+        $columns = DB::select("
+            SELECT column_name, data_type 
+            FROM information_schema.columns 
+            WHERE table_name = 'tuotteet'
+        ");
         
-        // Test if tuotteet table exists
-        $tables = DB::select('SHOW TABLES');
+        // Try to get one product
+        $product = DB::table('tuotteet')->first();
         
-        // Test a simple query
-        $count = DB::table('tuotteet')->count();
+        // Try the actual query
+        $products = DB::table('tuotteet')
+            ->orderBy('Tuote_ID', 'DESC')
+            ->limit(5)
+            ->get();
         
         return response()->json([
-            'status' => 'Database connected ✓',
-            'database' => DB::connection()->getDatabaseName(),
-            'tables' => $tables,
-            'tuotteet_count' => $count,
-            'env_check' => [
-                'DB_CONNECTION' => env('DB_CONNECTION'),
-                'DB_HOST' => env('DB_HOST'),
-                'DB_DATABASE' => env('DB_DATABASE'),
-            ]
+            'status' => 'success',
+            'database_type' => 'PostgreSQL',
+            'columns' => $columns,
+            'first_product' => $product,
+            'sample_products' => $products
         ]);
         
     } catch (\Exception $e) {
         return response()->json([
             'error' => $e->getMessage(),
-            'trace' => $e->getTraceAsString()
+            'line' => $e->getLine(),
+            'file' => basename($e->getFile())
         ], 500);
     }
-}); //debug route
-
+});//debuhg route for postgres
 
 
 Route::get('/me', function () {
