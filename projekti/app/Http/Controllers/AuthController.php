@@ -34,8 +34,6 @@ class AuthController extends Controller
 
         Log::info('Validated data:', $validatedData);
 
-
-
         if (!empty($validatedData['Nimi'])) {
             $user->Nimi = $validatedData['Nimi'];
         }
@@ -57,7 +55,7 @@ class AuthController extends Controller
         ]);
 
         $credentials = [
-            'Sähköposti' => $request->input('sähköposti'),
+            'SÃ¤hkÃ¶posti' => $request->input('sähköposti'),  // ✅ Changed
             'password' => $request->input('SalasanaHash'),
         ];
 
@@ -163,7 +161,7 @@ class AuthController extends Controller
     {
         $validatedData = $request->validate([
             'Nimi' => 'required|string|max:255',
-            'Sähköposti' => 'required|email|unique:users,Sähköposti',
+            'Sähköposti' => 'required|email|unique:users,SÃ¤hkÃ¶posti',  // ✅ Changed the unique rule
             'Puhelin' => 'nullable|string|max:20',
             'Salasana' => [
                 'required',
@@ -176,7 +174,7 @@ class AuthController extends Controller
 
         $user = User::create([
             'Nimi' => $validatedData['Nimi'],
-            'Sähköposti' => $validatedData['Sähköposti'],
+            'SÃ¤hkÃ¶posti' => $validatedData['Sähköposti'],  // ✅ Changed
             'Puhelin' => $validatedData['Puhelin'] ?? null,
             'SalasanaHash' => Hash::make($validatedData['Salasana']),
         ]);
@@ -204,7 +202,7 @@ class AuthController extends Controller
         event(new Registered($user));
 
         \Log::info('EVENT FIRED - Email should be sending', [
-            'to' => $user->Sähköposti,
+            'to' => $user->email,  // ✅ Use the accessor instead
             'user_id' => $user->User_ID
         ]);
 

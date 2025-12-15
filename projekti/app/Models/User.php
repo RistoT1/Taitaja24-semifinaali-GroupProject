@@ -19,7 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $fillable = [
         'Nimi',
-        'Sähköposti',
+        'SÃ¤hkÃ¶posti',  // ✅ Changed from 'Sähköposti'
         'Puhelin',
         'Osoite_ID',
         'SalasanaHash',
@@ -54,12 +54,12 @@ class User extends Authenticatable implements MustVerifyEmail
     // Map 'email' attribute to your column
     public function getEmailAttribute()
     {
-        return $this->Sähköposti;
+        return $this->SÃ¤hkÃ¶posti;  // ✅ Changed
     }
 
     public function setEmailAttribute($value)
     {
-        $this->attributes['Sähköposti'] = $value;
+        $this->attributes['SÃ¤hkÃ¶posti'] = $value;  // ✅ Changed
     }
 
     // Map 'name' attribute to your column
@@ -71,12 +71,12 @@ class User extends Authenticatable implements MustVerifyEmail
     // Route email notifications to your email column
     public function routeNotificationForMail()
     {
-        return $this->Sähköposti;
+        return $this->SÃ¤hkÃ¶posti;  // ✅ Changed
     }
 
     // **CRITICAL: Tell Laravel which column to use for login**
     public function getEmailForPasswordReset()
     {
-        return $this->Sähköposti;
+        return $this->SÃ¤hkÃ¶posti;  // ✅ Changed
     }
 }
