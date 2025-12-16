@@ -18,7 +18,7 @@
                             </div>
                             <div class="price_input_box">
                                 <label for="maxPrice">Max (€)</label>
-                                <input type="number" id="maxPrice" placeholder="500">
+                                <input type="number" id="maxPrice" placeholder="50">
                             </div>
                         </div>
                         <div class="filter-buttons mobile">
