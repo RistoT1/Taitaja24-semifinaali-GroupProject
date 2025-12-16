@@ -33,8 +33,34 @@ Route::get('/admin', function () {
 
 Route::get('/tuotteet', [TuotteetController::class, 'index']);
 
+
+
+
+
+
+
+
+
+
 Route::get('/kirjaudu', [AuthController::class, 'showLoginForm']);
 Route::post('/kirjaudu', [AuthController::class, 'checkCredentials']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/rekisteroidy', function () {
     return view('rekisteroidy');

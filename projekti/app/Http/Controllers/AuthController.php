@@ -144,7 +144,7 @@ class AuthController extends Controller
             return back()->withErrors(['code' => 'Incorrect code.']);
         }
 
-        // SUCCESS — clear code and log the user in
+        //Onnistui :-D
         $user->two_factor_code = null;
         $user->two_factor_expires_at = null;
         $user->save();
