@@ -196,13 +196,13 @@ cd Taitaja24-semifinaali-GroupProject/projekti
 docker-compose --profile dev up -d
 ```
 
-3. **Install dependencies inside container:**
+3. **Install dependencies inside container: (usually don't need to do this)**
 ```bash
 docker-compose exec app composer install
 docker-compose exec app npm install
 ```
 
-4. **Configure environment and run migrations:**
+4. **Configure environment and run migrations: (usually don't need to do this**
 ```bash
 docker-compose exec app cp .env.example .env
 docker-compose exec app php artisan key:generate
