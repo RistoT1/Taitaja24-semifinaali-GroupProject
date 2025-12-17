@@ -5,7 +5,7 @@
 This repository contains a full-stack e-commerce web application (verkkokauppa) based on the Taitaja 2024 competition semifinals project. The project is built with Laravel and demonstrates modern web development practices, including user authentication, shopping cart functionality, product management, and administrative features.
 
 ## NOTE!
-Some of the parts of the code might break because there are urls and other parts of codes which are hardcoded (oops🤦). But we are still proud of what we came up with and we really learned a lot. Images of the project you can at the bottom of THIS ReadME. 
+Some of the parts of the code might break because there are urls and other parts of codes which are hardcoded (oops🤦). But we are still proud of what we came up with and we really learned a lot. Images of the project you can view at the bottom of THIS ReadME. 
 
 ## 👥 Team Members (Tekijät)
 
