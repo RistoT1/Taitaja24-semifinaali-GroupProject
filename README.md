@@ -192,9 +192,8 @@ cd Taitaja24-semifinaali-GroupProject/projekti
 ```
 
 2. **Asign Env**
-```bash
 -mailer configs and db confs
-```
+-there might apear env folder. Just delete it and put the env into the ./projekti
 
 3. **Start Docker containers with development profile:**
 ```bash
