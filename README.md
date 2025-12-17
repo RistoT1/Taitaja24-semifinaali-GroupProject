@@ -191,25 +191,43 @@ git clone https://github.com/RistoT1/Taitaja24-semifinaali-GroupProject.git
 cd Taitaja24-semifinaali-GroupProject/projekti
 ```
 
-2. **Start Docker containers with development profile:**
+2. **Asign Env**
+```bash
+-mailer configs and db confs
+```
+
+3. **Start Docker containers with development profile:**
 ```bash
 docker-compose --profile dev up -d
 ```
 
-3. **Install dependencies inside container: (usually don't need to do this)**
+4. **Setup database in port 8081**
+```bash
+(http://localhost:8081/)
+Create new database named verkkokauppa
+then import the database.
+
+After this might have to do
+docker-compose down
+docker ps -a --filter "network=projekti_laravel" --format "{{.ID}}"
+ | ForEach-Object { docker rm -f $_ }
+docker-compose down
+```
+
+5. **Install dependencies inside container: (usually don't need to do this)**
 ```bash
 docker-compose exec app composer install
 docker-compose exec app npm install
 ```
 
-4. **Configure environment and run migrations: (usually don't need to do this**
+6. **Configure environment and run migrations: (usually don't need to do this**
 ```bash
 docker-compose exec app cp .env.example .env
 docker-compose exec app php artisan key:generate
 docker-compose exec app php artisan migrate
 ```
 
-5. **Access the application:**
+7. **Access the application:**
    - **Laravel Application:** http://localhost:8080
    - **phpMyAdmin:** http://localhost:8081 (username: `root`, password: `rootpassword`)
    - **MySQL:** localhost:3307
